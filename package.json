@@ -1,20 +1,20 @@
 {
   "name": "hapiest",
   "version": "0.0.0",
-  "description": "The HAPIEST Template",
+  "description": "Rehab RUG level management application",
   "engines": {
     "node": "0.10.x"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bchiatt/hapiest"
+    "url": "https://github.com/bchiatt/runner2"
   },
   "author": "Brian Hiatt <brian.hiatt41@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bchiatt/hapiest/issues"
+    "url": "https://github.com/bchiatt/runner2/issues"
   },
-  "homepage": "https://github.com/bchiatt/hapiest",
+  "homepage": "https://github.com/bchiatt/runner2",
   "directories": {
     "test": "test"
   },

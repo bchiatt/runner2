@@ -2,8 +2,6 @@ language: node_js
 node_js:
   - "0.10"
 services:
-  - mongodb
-  - redis-server
 notifications:
   email: false
 script:
@@ -11,4 +9,3 @@ script:
   - npm test
 after_script:
   - npm run coveralls
-
