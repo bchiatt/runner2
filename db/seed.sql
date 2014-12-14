@@ -1,0 +1,3 @@
+--delete from users
+--insert into users (username, password) values ('bob', '$2a$10$DG22WPwDsAeN9i3E5K.np.F.PMmuCTWzEOkWJwdeoqDIg386bTrHG');
+--insert into users (username, password) values ('sue', '$2a$10$mQCR6iq3nQ68enLjVTbAN.dkn4IyJyY400pF5lCrKP0OzjJrAO4Te');
