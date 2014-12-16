@@ -1,7 +1,7 @@
 ## name of project
 ### Code Badges
 [![Build Status](https://travis-ci.org/bchiatt/runner2.svg?branch=dev)](https://travis-ci.org/bchiatt/runner2)
-[![Coverage Status](https://coveralls.io/repos/bchiatt/runner2/badge.png)](https://coveralls.io/r/bchiatt/runner2)
+[![Coverage Status](https://coveralls.io/repos/bchiatt/runner2/badge.png?branch=dev)](https://coveralls.io/r/bchiatt/runner2?branch=dev)
 
 ### Screenshots
 ![Image1](/docs/screenshots/one.jpg)
