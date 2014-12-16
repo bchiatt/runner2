@@ -20,13 +20,17 @@ User.register = function(obj, orgId, cb){
 User.login = function(obj, cb){
   pg.query('select * from users where username = $1 limit 1', [obj.username], function(err, results){
     var user = results.rows[0];
-    if(!user){return cb();}
+    if(!user){return cb(err, null);}
 
     var isAuth = bcrypt.compareSync(obj.password, user.password);
-    if(!isAuth){return cb();}
+    if(!isAuth){return cb(err, null);}
 
     delete user.password;
-    cb(user);
+    pg.query('select * from orgs where id = $1 limit 1', [user.org_id], function(err, results){
+      if(!results || !results.rows[0]){return cb(err, null);}
+      user.org = results.rows[0];
+      cb(err, user);
+    });
   });
 };
 
