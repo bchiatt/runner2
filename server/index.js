@@ -6,7 +6,7 @@ var Hapi         = require('hapi'),
   plugins        = require('./routes/config/plugins'),
   authentication = require('./routes/config/authentication');
 
-server.connection({host: '0.0.0.0', port: process.env.PORT});
+server.connection({port: process.env.PORT});
 server.register(plugins, function(){
   server.auth.strategy('session', 'cookie', true, authentication);
   server.route(routes);
@@ -14,3 +14,5 @@ server.register(plugins, function(){
     server.log('info', server.info.uri);
   });
 });
+
+module.exports = server;

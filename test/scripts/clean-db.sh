@@ -5,5 +5,5 @@ if [ -z "$1" ] ; then
   exit 1
 fi
 
-mongoimport --jsonArray --drop --db $1 --collection users --file ../../db/users.json
-
+psql $1 -f ../../db/test/clean.sql
+psql $1 -f ../../db/test/populate.sql

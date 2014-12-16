@@ -5,7 +5,7 @@
 var expect = require('chai').expect,
 cp         = require('child_process'),
 h          = require('../helpers/helpers'),
-User       = require('../../server/models/user'),
+Org        = require('../../server/models/org'),
 Lab        = require('lab'),
 lab        = exports.lab = Lab.script(),
 describe   = lab.describe,
@@ -13,7 +13,7 @@ it         = lab.it,
 beforeEach = lab.beforeEach,
 db         = h.getdb();
 
-describe('User', function(){
+describe('Org', function(){
   beforeEach(function(done){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [db], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
       done();
@@ -21,11 +21,11 @@ describe('User', function(){
   });
 
   describe('constructor', function(){
-    it('should create a user object', function(done){
-      var user = new User({first: 'Bob', last: 'Paul', username:'bob'});
+    it('should create an org object', function(done){
+      var org = new Org({orgName: 'NSS', city: 'Nashville', state:'TN'});
 
-      expect(user).to.be.instanceof(User);
-      expect(user.username).to.equal('bob');
+      expect(org).to.be.instanceof(Org);
+      expect(org.city).to.equal('Nashville');
       done();
     });
   });
