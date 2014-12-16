@@ -1,0 +1,48 @@
+h1 Register
+
+.row
+   .small-12.columns
+        form
+            .row
+               .small-6.columns
+                  label(for='orgName') Organization Name
+                  input#orgName(type='text', name='orgname', ng-model='user.orgName', autofocus)
+               .small-6.columns
+            .row
+               .small-6.columns
+                  label(for='city') City
+                  input#city(type='text', name='city', ng-model='user.city')
+               .small-6.columns
+            .row
+               .small-6.columns
+                  label(for='state') State
+                  input#state(type='text', name='state', ng-model='user.state')
+               .small-6.columns
+            .row
+               .small-6.columns
+                  button(ng-click='orgExists()') Check Organization
+               .small-6.columns
+            .row
+               .small-6.columns
+                  label(for='first') Admin First Name
+                  input#first(type='text', name='first', ng-model='user.first', autofocus)
+               .small-6.columns
+            .row
+               .small-6.columns
+                  label(for='last') Admin Last Name
+                  input#last(type='text', name='last', ng-model='user.last', autofocus)
+               .small-6.columns
+            .row
+               .small-6.columns
+                  label(for='username') Username
+                  input#username(type='text', name='username', ng-model='user.username', autofocus)
+               .small-6.columns
+            .row
+               .small-6.columns
+                  label(for='password') Password
+                  input#password(type='password', name='password', ng-model='user.password')
+               .small-6.columns
+            .row
+               .small-6.columns
+                  button(ng-click='register()') Register
+               .small-6.columns
