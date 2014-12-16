@@ -61,14 +61,6 @@ describe('Org', function(){
         done();
       });
     });
-    it('should NOT find an org - bad data entry', function(done){
-      Org.findOne({orgName: 1, city: 'Nashville', state: 'TN', }, function(err, results){
-        console.log('err', err);
-        console.log('results', results);
-        expect(err).to.be.ok;
-        done();
-      });
-    });
   });
 
   describe('.changeAdmin', function(){
