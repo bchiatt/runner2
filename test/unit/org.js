@@ -39,7 +39,7 @@ describe('Org', function(){
       });
     });
     it('should NOT register a new org - duplicate', function(done){
-      Org.register({orgName: 'Trevecca', city: 'Nashville', state: 'TN', }, function(err, results){
+      Org.register({orgName: 'Trevecca', city: 'Nashville', state: 'TN'}, function(err, results){
         expect(err).to.be.ok;
         done();
       });
@@ -55,7 +55,7 @@ describe('Org', function(){
       });
     });
     it('should NOT find an org - not exist', function(done){
-      Org.findOne({orgName: 'trevecca', city: 'Nashville', state: 'TN', }, function(err, results){
+      Org.findOne({orgName: 'trevecca', city: 'Nashville', state: 'TN'}, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         done();
