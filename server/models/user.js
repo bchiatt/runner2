@@ -27,7 +27,7 @@ User.login = function(obj, cb){
 
     delete user.password;
     pg.query('select * from orgs where id = $1 limit 1', [user.org_id], function(err, results){
-      if(!results || !results.rows[0]){return cb(err, null);}
+      if(!results && !results.rows[0]){return cb(err, null);}
       user.org = results.rows[0];
       cb(err, user);
     });

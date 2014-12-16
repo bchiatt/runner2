@@ -7,5 +7,3 @@ create table users(
   password char(60) not null,
   created_at timestamp not null default now()
 );
-
-alter table orgs add foreign key ("admin_id") references users(id) on delete cascade;

@@ -5,9 +5,6 @@ if [ -z "$1" ] ; then
   exit 1
 fi
 
-# add tables
-psql $1 -f ../../db/tables/users.sql
 psql $1 -f ../../db/tables/orgs.sql
-
-# add function
-# psql $1 -f ../../db/functions/add_note.sql
+psql $1 -f ../../db/tables/users.sql
+psql $1 -f ../../db/tables/alter-orgs.sql

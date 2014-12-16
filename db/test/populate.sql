@@ -14,7 +14,7 @@ insert into users (org_id, first, last, username, password) values (1, 'bob', 'p
 
 delete from users;
 
-insert into users (org_id, first, last, username, password) values (1, 'bob', 'paul', 'bob', '1234');
+insert into users (id, org_id, first, last, username, password) values (1, 1, 'Bob', 'Paul', 'bob', '$2a$10$3fHOFhv53wb4FBM2zTF4L.XFDSsiDF7pPYOUYsiqV9iAgI3g6mhZG');
 
 # add admin to org
 update orgs set admin_id = 1 where id = 1;

@@ -30,39 +30,68 @@ describe('Org', function(){
     });
   });
 
-  // describe('.register', function(){
-  //   it('should register a new user', function(done){
-  //     User.register({username:'sam', password:'1234', avatar:'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'}, function(err, b, c){
-  //       expect(err).to.be.null;
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT register a new user - duplicate', function(done){
-  //     User.register({username:'bob', password:'1234', avatar:'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'}, function(err){
-  //       expect(err).to.be.ok;
-  //       done();
-  //     });
-  //   });
-  // });
-  //
-  // describe('.login', function(){
-  //   it('should login a user', function(done){
-  //     User.login({username:'bob', password:'1234'}, function(user){
-  //       expect(user.username).to.equal('bob');
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT login a user - bad username', function(done){
-  //     User.login({username:'wrong', password:'1234'}, function(user){
-  //       expect(user).to.be.undefined;
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT login a user - bad password', function(done){
-  //     User.login({username:'bob', password:'wrong'}, function(user){
-  //       expect(user).to.be.undefined;
-  //       done();
-  //     });
-  //   });
-  // });
+  describe('.register', function(){
+    it('should register a new org', function(done){
+      Org.register({orgName: 'NSS', city: 'Nashville', state: 'TN'}, function(err, results){
+        expect(results.id).to.be.ok;
+        expect(err).to.be.null;
+        done();
+      });
+    });
+    it('should NOT register a new org - duplicate', function(done){
+      Org.register({orgName: 'Trevecca', city: 'Nashville', state: 'TN', }, function(err, results){
+        expect(err).to.be.ok;
+        done();
+      });
+    });
+  });
+
+  describe('.findOne', function(){
+    it('should find an org', function(done){
+      Org.findOne({orgName: 'NSS', city: 'Nashville', state: 'TN'}, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.be.null;
+        done();
+      });
+    });
+    it('should NOT find an org - not exist', function(done){
+      Org.findOne({orgName: 'trevecca', city: 'Nashville', state: 'TN', }, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.be.ok;
+        done();
+      });
+    });
+    it('should NOT find an org - bad data entry', function(done){
+      Org.findOne({orgName: 1, city: 'Nashville', state: 'TN', }, function(err, results){
+        console.log('err', err);
+        console.log('results', results);
+        expect(err).to.be.ok;
+        done();
+      });
+    });
+  });
+
+  describe('.changeAdmin', function(){
+    it('should change org admin id', function(done){
+      Org.changeAdmin(1, 1, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.be.equal(1);
+        done();
+      });
+    });
+    it('should NOT change org admin id - no user', function(done){
+      Org.changeAdmin(1, 2, function(err, results){
+        expect(err).to.be.ok;
+        expect(results).to.be.null;
+        done();
+      });
+    });
+    it('should NOT change org admin id - no org', function(done){
+      Org.changeAdmin(2, 1, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.be.null;
+        done();
+      });
+    });
+  });
 });

@@ -24,7 +24,7 @@ Org.register = function(obj, cb){
 
 Org.changeAdmin = function(orgId, userId, cb){
    pg.query('update orgs set admin_id = $1 where id = $2', [userId, orgId], function(err, results){
-     cb(err, results && results.rows[0] ? results.rows[0] : null);
+     cb(err, results && results.rowCount ? results.rowCount : null);
    });
 };
 
