@@ -48,14 +48,14 @@ describe('Org', function(){
 
   describe('.findOne', function(){
     it('should find an org', function(done){
-      Org.findOne({orgName: 'NSS', city: 'Nashville', state: 'TN'}, function(err, results){
+      Org.findByName({orgName: 'NSS', city: 'Nashville', state: 'TN'}, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.null;
         done();
       });
     });
     it('should NOT find an org - not exist', function(done){
-      Org.findOne({orgName: 'trevecca', city: 'Nashville', state: 'TN'}, function(err, results){
+      Org.findByName({orgName: 'trevecca', city: 'Nashville', state: 'TN'}, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         done();

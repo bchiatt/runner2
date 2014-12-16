@@ -21,7 +21,7 @@ module.exports = {
   auth: false,
   handler: function(request, reply){
     if(!request.payload.username){
-      Org.findOne(request.payload, function(err, results){
+      Org.findByName(request.payload, function(err, results){
         reply(results).code(!results && !err ? 200 : 400);
       });
     }else{

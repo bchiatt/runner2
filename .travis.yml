@@ -17,7 +17,7 @@ after_script:
   - npm run coveralls
 env:
   global:
-    - DATABASE_URL=postgres://postgres@localhost/runner2_test
+    - DATABASE_URL=postgres://postgres@localhost/runner_test
     - AWS_BUCKET=bc-runner2-test
     # AWS_SECRET_ACCESS_KEY
     - secure: "ZWz21c92C+ZGfrYs5JqYsSBUEcIZTsBb15yKHi3V2ynMK+d4rW40lftiO/kc+WXtwQ09EzDI3kAQX6G1bxCf42JHoVbOI9kZMDdokBleyPohJ+r0KkQBvejeBPxB1WrpTo5sBHSklR5rZ4yS7sC01BFMDJ8n+mtuTUJBDVWa5I0="

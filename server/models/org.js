@@ -9,7 +9,7 @@ function Org(obj){
 
 }
 
-Org.findOne = function(obj, cb){
+Org.findByName = function(obj, cb){
   pg.query('select * from orgs where name ilike $1 limit 1', [obj.orgName], function(err, results){
     cb(err, results && results.rows[0] ? results.rows[0] : null);
   });
