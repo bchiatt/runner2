@@ -28,7 +28,7 @@ module.exports = {
       Org.findByName(request.payload, function(err, results){
         if(results || err){return reply().code(400);}
         Org.register(request.payload, function(err, org){
-          //if(err){return reply().code(400);}
+          if(err){return reply().code(400);}
           User.register(request.payload, org.id, function(err, user){
             if(err || !user){return reply().code(400);}
             Org.changeAdmin(org.id, user.id, function(err, results){

@@ -1,6 +1,6 @@
 create table users(
   id serial primary key,
-  org_id integer references orgs(id) on delete cascade,
+  org_id integer not null references orgs(id) on delete cascade,
   username varchar(255) unique not null,
   first varchar(255) not null,
   last varchar(255) not null,
