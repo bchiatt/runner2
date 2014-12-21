@@ -5,5 +5,6 @@ create table users(
   first varchar(255) not null,
   last varchar(255) not null,
   password char(60) not null,
+  email varchar(75) unique,
   created_at timestamp not null default now()
 );

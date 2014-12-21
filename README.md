@@ -39,6 +39,34 @@ $ npm install
 $ npm test
 ```
 
+### Setting Up Database for Testing
+create postgres db named `runner_test` (or name of choice)
+```bash
+$ cd test/scripts
+# run all three scripts in this order if any changes made to db structure
+$ ./drop-tables.sh runner_test # can skip if db is new; drops all tables
+$ ./create-db.sh runner_test # creates all tables in the db
+$ ./clean-db.sh runner_test # deletes * from each table and enters seed data
+$ ./reset-db.sh runner_test # executes the above 3 scripts
+```
+
+### Setting Up Database for Production
+create postgres db name `runner` (or name of choice)
+```bash
+$ cd test/scripts
+$ ./drop-tables.sh runner_test # can skip if db is new; drops all tables
+$ ./create-db.sh runner_test # creates all tables in the db
+```
+
+### Process Environment Variables Required
+```bash
+$ PORT
+$ DATABASE_URL
+$ AWS_BUCKET
+$ AWS_SECRET_ACCESS_KEY
+$ AWS_ACCESS_KEY_ID
+```
+
 ### Contributors
 - [Brian Hiatt](https://github.com/bchiatt)
 

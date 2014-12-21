@@ -4,6 +4,8 @@ create table clients(
   ins_id integer not null references insurances(id),
   first varchar(50) not null,
   last varchar(50) not null,
+  email varchar(75) unique,
+  phone varchar(15) unique,
   photo varchar(500),
   room varchar(10),
   admit_date date not null,

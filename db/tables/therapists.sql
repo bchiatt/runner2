@@ -7,5 +7,6 @@ create table therapists(
   is_therapist boolean not null,
   photo varchar (500),
   productivity_goal smallint,
-  phone varchar(15)
+  email varchar(75) unique,
+  phone varchar(15) unique
 );

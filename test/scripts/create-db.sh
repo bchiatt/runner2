@@ -18,3 +18,6 @@ psql $1 -f ../../db/tables/clients.sql
 psql $1 -f ../../db/tables/treatment_plans.sql
 psql $1 -f ../../db/tables/clients_precautions.sql
 psql $1 -f ../../db/tables/treatments.sql
+
+psql $1 -f ../../db/functions/insurance_add.sql
+psql $1 -f ../../db/functions/insurance_update.sql

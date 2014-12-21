@@ -1,11 +1,11 @@
 'use strict';
 
 var Joi  = require('joi'),
-    Org  = require('../../../models/org'),
+    Org  = require('../../../models/organization'),
     User = require('../../../models/user');
 
 module.exports = {
-  description: 'Register an Organization',
+  description: 'Register an Organization with Administrator',
   tags:['users'],
   validate: {
     payload: {

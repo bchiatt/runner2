@@ -5,7 +5,7 @@
 var expect = require('chai').expect,
 cp         = require('child_process'),
 h          = require('../helpers/helpers'),
-Org        = require('../../server/models/org'),
+Org        = require('../../server/models/organization'),
 Lab        = require('lab'),
 lab        = exports.lab = Lab.script(),
 describe   = lab.describe,
@@ -72,14 +72,14 @@ describe('Org', function(){
       });
     });
     it('should NOT change org admin id - no user', function(done){
-      Org.changeAdmin(1, 2, function(err, results){
+      Org.changeAdmin(1, 55, function(err, results){
         expect(err).to.be.ok;
         expect(results).to.be.null;
         done();
       });
     });
     it('should NOT change org admin id - no org', function(done){
-      Org.changeAdmin(2, 1, function(err, results){
+      Org.changeAdmin(55, 1, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.null;
         done();

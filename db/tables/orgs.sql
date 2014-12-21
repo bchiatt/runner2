@@ -4,5 +4,6 @@ create table orgs(
   name varchar(255) unique not null,
   city varchar(255) not null,
   state varchar(2) not null,
+  token varchar(96) unique not null,
   created_at timestamp not null default now()
 );
