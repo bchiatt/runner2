@@ -80,7 +80,7 @@ insert into days_in_week (id, org_id, full_name, abbr, letter) values (7, 1, 'Su
 
 -- # populate therapists table
 insert into therapists (org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone) values (1, 2, 'Jane', 'Doe', true, 'image.png', 80, '615-555-1234');
-insert into therapists (org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone) values (1, 2, 'John', 'Doe', true, 'image.png', 80, '615-555-1234');
+insert into therapists (org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone) values (1, 2, 'John', 'Doe', true, 'image.png', 80, '615-555-5678');
 
 delete from therapists;
 

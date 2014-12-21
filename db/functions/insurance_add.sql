@@ -9,7 +9,7 @@ begin
     values (org_id, name, is_rug)
     returning id into ins_id;
 
-  return select * from insurances where id = ins_id;
+  return ins_id;
 
 end;
 $$ language plpgsql;
