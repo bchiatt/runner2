@@ -5,9 +5,9 @@ declare
 begin
 
   update days_in_week
-    set full_name = new_name,
-        abbr = new_abbr,
-        letter = new_letter
+    set full_name = coalesce(new_name, full_name),
+        abbr = coalesce(new_abbr, abbr),
+        letter = coalesce(new_letter, letter)
     where id = d_id and org_id = orgid;
 
     return found;

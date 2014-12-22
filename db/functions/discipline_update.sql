@@ -5,7 +5,8 @@ declare
 begin
 
   update disciplines
-    set name = new_name, abbr = new_abbr
+    set name = coalesce(new_name, name), 
+        abbr = coalesce(new_abbr, abbr)
     where id = d_id and org_id = orgid;
 
     return found;

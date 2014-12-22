@@ -5,7 +5,8 @@ declare
 begin
 
   update precautions
-    set name = new_name, description = new_description
+    set name = coalesce(new_name, name),
+        description = coalesce(new_description, description)
     where id = pid and org_id = orgid;
 
   return found;

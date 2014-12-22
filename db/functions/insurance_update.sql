@@ -5,7 +5,8 @@ declare
 begin
 
   update insurances
-    set name = new_name, is_rug = new_is_rug
+    set name = coalesce(new_name, name),
+        is_rug = coalesce(new_is_rug, is_rug)
     where id = iid and org_id = orgid;
 
   return found;
