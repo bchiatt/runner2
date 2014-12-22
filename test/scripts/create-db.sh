@@ -23,3 +23,5 @@ psql $1 -f ../../db/functions/insurance_add.sql
 psql $1 -f ../../db/functions/insurance_update.sql
 psql $1 -f ../../db/functions/discipline_add.sql
 psql $1 -f ../../db/functions/discipline_update.sql
+psql $1 -f ../../db/functions/precaution_add.sql
+psql $1 -f ../../db/functions/precaution_update.sql
