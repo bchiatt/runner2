@@ -76,5 +76,12 @@ describe('Discipline', function(){
   });
 
   describe('.update', function(){
+    it('should update a discipline', function(done){
+      Discipline.update({org: {id: 1}}, {name: 'Respiratory Therapy', abbr: 'RT'}, function(err, results){
+        expect(results).to.equal(1);
+        expect(err).to.be.null;
+        done();
+      });
+    });
   });
 });

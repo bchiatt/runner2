@@ -76,5 +76,12 @@ describe('Precaution', function(){
   });
 
   describe('.update', function(){
+    it('should update a precaution', function(done){
+      Precaution.update({org: {id: 1}}, {name: 'example', description: 'more info'}, function(err, results){
+        expect(results).to.equal(1);
+        expect(err).to.be.null;
+        done();
+      });
+    });
   });
 });

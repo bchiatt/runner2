@@ -1,14 +1,14 @@
 create or replace function insurance_update
-  (id integer, org_id integer, name varchar, is_rug boolean)
-returns integer AS $$
+  (iid integer, orgid integer, new_name varchar, new_is_rug boolean)
+returns boolean AS $$
 declare
 begin
 
   update insurances
-    set name = name
-    and is_rug = is_rug
-    where id = id and org_id = org_id
-    returning id;
+    set name = new_name, is_rug = new_is_rug
+    where id = iid and org_id = orgid;
+
+  return found;
 
 end;
 $$ language plpgsql;

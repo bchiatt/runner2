@@ -32,12 +32,12 @@ insert into insurances (id, org_id, name, is_rug) values (1, 1, 'Medicare A', tr
 insert into insurances (id, org_id, name, is_rug) values (2, 1, 'Healthspring', false);
 
 -- # populate precautions table
-insert into precautions (org_id, name, description) values (1, 'name', 'description');
-insert into precautions (org_id, name, description) values (1, 'name', 'description');
-insert into precautions (org_id, name, description) values (1, 'name', 'description');
-insert into precautions (org_id, name, description) values (1, 'name', 'description');
-insert into precautions (org_id, name, description) values (1, 'name', 'description');
-insert into precautions (org_id, name, description) values (1, 'name', 'description');
+insert into precautions (org_id, name, description) values (1, 'name1', 'description');
+insert into precautions (org_id, name, description) values (1, 'name2', 'description');
+insert into precautions (org_id, name, description) values (1, 'name3', 'description');
+insert into precautions (org_id, name, description) values (1, 'name4', 'description');
+insert into precautions (org_id, name, description) values (1, 'name5', 'description');
+insert into precautions (org_id, name, description) values (1, 'name6', 'description');
 
 delete from precautions;
 

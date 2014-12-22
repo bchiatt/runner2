@@ -1,14 +1,14 @@
-create or replace function precautions_update
-  (id integer, org_id integer, name varchar, description varchar)
-returns integer AS $$
+create or replace function precaution_update
+  (pid integer, orgid integer, new_name varchar, new_description varchar)
+returns boolean as $$
 declare
 begin
 
-  update precuations
-    set name = name
-    and description = description
-    where id = id and org_id = org_id
-    returning id;
+  update precautions
+    set name = new_name, description = new_description
+    where id = pid and org_id = orgid;
+
+  return found;
 
 end;
 $$ language plpgsql;

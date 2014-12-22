@@ -76,5 +76,12 @@ describe('Insurance', function(){
   });
 
   describe('.update', function(){
+    it('should update a insurance', function(done){
+      Insurance.update({org: {id: 1}}, {name: 'BCBS', isRug: true}, function(err, results){
+        expect(results).to.equal(1);
+        expect(err).to.be.null;
+        done();
+      });
+    });
   });
 });
