@@ -25,3 +25,5 @@ psql $1 -f ../../db/functions/discipline_add.sql
 psql $1 -f ../../db/functions/discipline_update.sql
 psql $1 -f ../../db/functions/precaution_add.sql
 psql $1 -f ../../db/functions/precaution_update.sql
+psql $1 -f ../../db/functions/day_add.sql
+psql $1 -f ../../db/functions/day_update.sql
