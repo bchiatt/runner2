@@ -48,7 +48,7 @@ insert into precautions (id, org_id, name, description) values (4, 1, 'ISO', 'Is
 insert into precautions (id, org_id, name, description) values (5, 1, 'CTX', 'Co-Treatment');
 insert into precautions (id, org_id, name, description) values (6, 1, 'VNT', 'Ventilator');
 
--- -- # populate disciplines table
+-- # populate disciplines table
 insert into disciplines (org_id, name, abbr) values (1, 'Occupational Therapy', 'OT');
 insert into disciplines (org_id, name, abbr) values (1, 'Physical Therapy', 'PT');
 insert into disciplines (org_id, name, abbr) values (1, 'Speech Therapy', 'ST');
@@ -59,7 +59,7 @@ insert into disciplines (id, org_id, name, abbr) values (1, 1, 'Occupational The
 insert into disciplines (id, org_id, name, abbr) values (2, 1, 'Physical Therapy', 'PT');
 insert into disciplines (id, org_id, name, abbr) values (3, 1, 'Speech Therapy', 'ST');
 
--- -- # populate days_in_week table
+-- # populate days_in_week table
 insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Monday', 'Mon', 'M');
 insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Tuesday', 'Tue', 'T');
 insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Wednesday', 'Wed', 'W');

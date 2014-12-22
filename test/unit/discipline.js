@@ -33,6 +33,8 @@ describe('Discipline', function(){
   describe('.add', function(){
     it('should add a new discipline', function(done){
       Discipline.add({org: {id: 1}}, {name: 'Respiratory Therapy', abbr: 'RT'}, function(err, results){
+        console.log('add discipline error', err);
+        console.log('add discipline results', results);
         expect(results.discipline_add).to.be.ok;
         expect(err).to.be.null;
         done();
