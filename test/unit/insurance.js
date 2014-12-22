@@ -66,6 +66,13 @@ describe('Insurance', function(){
   });
 
   describe('.all', function(){
+    it('should return all insurances by organization', function(done){
+      Insurance.all({org: {id: 1}}, function(err, results){
+        expect(err).to.be.null;
+        expect(results.length).to.equal(2);
+        done();
+      });
+    });
   });
 
   describe('.update', function(){

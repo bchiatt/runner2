@@ -66,6 +66,13 @@ describe('Discipline', function(){
   });
 
   describe('.all', function(){
+    it('should return all disciplines by organization', function(done){
+      Discipline.all({org: {id: 1}}, function(err, results){
+        expect(err).to.be.null;
+        expect(results.length).to.equal(3);
+        done();
+      });
+    });
   });
 
   describe('.update', function(){

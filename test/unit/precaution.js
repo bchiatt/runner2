@@ -66,6 +66,13 @@ describe('Precaution', function(){
   });
 
   describe('.all', function(){
+    it('should return all precautions by organization', function(done){
+      Precaution.all({org: {id: 1}}, function(err, results){
+        expect(err).to.be.null;
+        expect(results.length).to.equal(6);
+        done();
+      });
+    });
   });
 
   describe('.update', function(){
