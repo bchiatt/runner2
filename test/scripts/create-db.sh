@@ -21,3 +21,5 @@ psql $1 -f ../../db/tables/treatments.sql
 
 psql $1 -f ../../db/functions/insurance_add.sql
 psql $1 -f ../../db/functions/insurance_update.sql
+psql $1 -f ../../db/functions/discipline_add.sql
+psql $1 -f ../../db/functions/discipline_update.sql
