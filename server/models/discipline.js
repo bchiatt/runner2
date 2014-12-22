@@ -27,7 +27,7 @@ Discipline.add = function(user, obj, cb){
 };
 
 Discipline.update = function(user, obj, cb){
-   pg.query('select discipline_update($1, $2, $3, $4)', [obj.id, obj.orgId, obj.name, obj.abbr], function(err, results){
+   pg.query('select discipline_update($1, $2, $3, $4)', [obj.id, user.org.id, obj.name, obj.abbr], function(err, results){
      cb(err, results && results.rowCount ? results.rowCount : null);
    });
 };

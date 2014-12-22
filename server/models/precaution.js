@@ -27,7 +27,7 @@ Precaution.add = function(user, obj, cb){
 };
 
 Precaution.update = function(user, obj, cb){
-   pg.query('select precaution_update($1, $2, $3, $4)', [obj.id, obj.orgId, obj.name, obj.description], function(err, results){
+   pg.query('select precaution_update($1, $2, $3, $4)', [obj.id, user.org.id, obj.name, obj.description], function(err, results){
      cb(err, results && results.rowCount ? results.rowCount : null);
    });
 };

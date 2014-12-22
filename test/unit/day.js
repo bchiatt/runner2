@@ -13,7 +13,7 @@ it         = lab.it,
 beforeEach = lab.beforeEach,
 db         = h.getdb();
 
-describe('Discipline', function(){
+describe('Day', function(){
   beforeEach(function(done){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [db], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
       done();

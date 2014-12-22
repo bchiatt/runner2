@@ -27,3 +27,5 @@ psql $1 -f ../../db/functions/precaution_add.sql
 psql $1 -f ../../db/functions/precaution_update.sql
 psql $1 -f ../../db/functions/day_add.sql
 psql $1 -f ../../db/functions/day_update.sql
+psql $1 -f ../../db/functions/client_add.sql
+psql $1 -f ../../db/functions/client_update.sql

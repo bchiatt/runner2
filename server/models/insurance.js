@@ -27,7 +27,7 @@ Insurance.add = function(user, obj, cb){
 };
 
 Insurance.update = function(user, obj, cb){
-   pg.query('select insurance_update($1, $2, $3, $4)', [obj.id, obj.orgId, obj.name, obj.isRug], function(err, results){
+   pg.query('select insurance_update($1, $2, $3, $4)', [obj.id, user.org.id, obj.name, obj.isRug], function(err, results){
      cb(err, results && results.rowCount ? results.rowCount : null);
    });
 };

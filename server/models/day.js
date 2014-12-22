@@ -28,7 +28,7 @@ Day.add = function(user, obj, cb){
 };
 
 Day.update = function(user, obj, cb){
-   pg.query('select day_update($1, $2, $3, $4, $5)', [obj.id, obj.orgId, obj.name, obj.abbr, obj.letter], function(err, results){
+   pg.query('select day_update($1, $2, $3, $4, $5)', [obj.id, user.org.id, obj.name, obj.abbr, obj.letter], function(err, results){
      cb(err, results && results.rowCount ? results.rowCount : null);
    });
 };
