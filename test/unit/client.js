@@ -5,7 +5,7 @@
 var expect = require('chai').expect,
 cp         = require('child_process'),
 h          = require('../helpers/helpers'),
-Client        = require('../../server/models/client'),
+Client     = require('../../server/models/client'),
 Lab        = require('lab'),
 lab        = exports.lab = Lab.script(),
 describe   = lab.describe,
