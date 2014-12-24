@@ -1,0 +1,12 @@
+drop table treatments;
+drop table clients_precautions;
+drop table treatment_plans;
+drop table clients;
+drop table work_schedules;
+drop table therapists;
+drop table days_in_week;
+drop table disciplines;
+drop table precautions;
+drop table insurances;
+drop table orgs cascade;
+drop table users;

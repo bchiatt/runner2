@@ -1,11 +1,25 @@
 language: node_js
 node_js:
-  - "0.10"
+  - "0.10.33"
 services:
+  - postgres
+addons:
+  postgresql: "9.3"
 notifications:
   email: false
 script:
   - npm run syntax
   - npm test
+before_script:
+  - psql -c 'create database runner_test;' -U postgres
+  - cd test/scripts; ./create-db.sh runner_test; cd ../..;
 after_script:
   - npm run coveralls
+env:
+  global:
+    - DATABASE_URL=postgres://postgres@localhost/runner_test
+    - AWS_BUCKET=bc-runner2-test
+    # AWS_SECRET_ACCESS_KEY
+    - secure: "ZWz21c92C+ZGfrYs5JqYsSBUEcIZTsBb15yKHi3V2ynMK+d4rW40lftiO/kc+WXtwQ09EzDI3kAQX6G1bxCf42JHoVbOI9kZMDdokBleyPohJ+r0KkQBvejeBPxB1WrpTo5sBHSklR5rZ4yS7sC01BFMDJ8n+mtuTUJBDVWa5I0="
+    # AWS_ACCESS_KEY_ID
+    - secure: "fuC+yRC2Ju0xkD6d9bXYoYmJ1InqdrXTHGTJq5/MGrp/fPpz5q+sGALbMtureStpwO2vGcRUJxCYDW8n2FHOGrEtQp+8pwJcJfImXDGnn/Ok/AJCYcJic813oNOd29e/Y2dvcCeH0k0Z/yVyIEDpT5KAeoifzxrD+Wnau91ZeDY="

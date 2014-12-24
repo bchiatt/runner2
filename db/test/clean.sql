@@ -1,0 +1,12 @@
+delete from treatments;
+delete from clients_precautions;
+delete from treatment_plans;
+delete from clients;
+delete from work_schedules;
+delete from therapists;
+delete from days_in_week;
+delete from disciplines;
+delete from precautions;
+delete from insurances;
+delete from users;
+delete from orgs;

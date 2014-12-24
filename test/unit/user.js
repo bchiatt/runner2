@@ -2,61 +2,76 @@
 
 'use strict';
 
-var expect    = require('chai').expect,
-    User      = require('../../server/models/user'),
-    cp        = require('child_process');
+var expect = require('chai').expect,
+cp         = require('child_process'),
+h          = require('../helpers/helpers'),
+User       = require('../../server/models/user'),
+Lab        = require('lab'),
+lab        = exports.lab = Lab.script(),
+describe   = lab.describe,
+it         = lab.it,
+beforeEach = lab.beforeEach,
+db         = h.getdb();
 
 describe('User', function(){
-  before(function(done){
-    done();
-  });
-
   beforeEach(function(done){
-    cp.execFile(__dirname + '/../scripts/clean-db.sh', ['runner2-test'], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
+    cp.execFile(__dirname + '/../scripts/clean-db.sh', [db], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
       done();
     });
   });
 
   describe('constructor', function(){
-    it('should create a new User object', function(){
-      var u = new User({username:'bob'});
-      expect(u).to.be.instanceof(User);
+    it('should create an user object', function(done){
+      var user = new User({first: 'Bob', last: 'Paul', username:'bob'});
+
+      expect(user).to.be.instanceof(User);
+      expect(user.username).to.equal('bob');
+      done();
     });
   });
 
-  // describe('.register', function(){
-  //   it('should register a user', function(done){
-  //     User.register({email:'x@y.com', password:'123'}, function(err, user){
-  //       expect(user).to.be.ok;
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT register a user - dupe email', function(done){
-  //     User.register({email:'bob@aol.com', password:'123'}, function(err, user){
-  //       expect(user).to.be.undefined;
-  //       done();
-  //     });
-  //   });
-  // });
-  //
-  // describe('.login', function(){
-  //   it('should login a user', function(done){
-  //     User.login({email:'bob@aol.com', password:'1234'}, function(err, user){
-  //       expect(user).to.be.ok;
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT login a user - bad email', function(done){
-  //     User.login({email:'wrong@aol.com', password:'1234'}, function(err, user){
-  //       expect(user).to.be.undefined;
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT login a user - bad password', function(done){
-  //     User.login({email:'bob@aol.com', password:'wrong'}, function(err, user){
-  //       expect(user).to.be.undefined;
-  //       done();
-  //     });
-  //   });
-  // });
+  describe('.register', function(){
+    it('should register a new user', function(done){
+      User.register({username:'sam', password:'1234', first:'Sam', last:'Smith'}, 1, function(err){
+        expect(err).to.be.null;
+        done();
+      });
+    });
+    it('should NOT register a new user - duplicate', function(done){
+      User.register({username:'bob', password:'1234', first:'Bob', last:'Tom'}, 1, function(err){
+        expect(err).to.be.ok;
+        done();
+      });
+    });
+    it('should NOT register a new user - no Org', function(done){
+      User.register({username:'bob', password:'1234', first:'Bob', last:'Tom'}, 7, function(err){
+        expect(err).to.be.ok;
+        done();
+      });
+    });
+  });
+
+  describe('.login', function(){
+    it('should login a user', function(done){
+      User.login({username:'bob', password:'1234'}, function(err, user){
+        expect(err).to.be.null;
+        expect(user.username).to.equal('bob');
+        done();
+      });
+    });
+    it('should NOT login a user - bad username', function(done){
+      User.login({username:'wrong', password:'1234'}, function(err, user){
+        expect(err).to.be.null;
+        expect(user).to.be.null;
+        done();
+      });
+    });
+    it('should NOT login a user - bad password', function(done){
+      User.login({username:'bob', password:'wrong'}, function(err, user){
+        expect(err).to.be.null;
+        expect(user).to.be.null;
+        done();
+      });
+    });
+  });
 });
