@@ -7,9 +7,9 @@ function Client(obj){
   this.last = obj.last;
 }
 
-Client.findById = function(id, cb){
-  pg.query('select * from clients where id = $1 limit 1',
-      [id], function(err, results){
+Client.findById = function(user, id, cb){
+  pg.query('select * from clients where id = $1 and org_id = $2limit 1',
+      [id, user.org.id], function(err, results){
     cb(err, results && results.rows[0] ? results.rows[0] : null);
   });
 };
@@ -36,7 +36,7 @@ Client.update = function(user, obj, cb){
         obj.phone, obj.photo, obj.room, obj.admitDate, obj.dischargeDate
       ],
       function(err, results){
-    cb(err, results && results.rowCount ? results.rowCount : null);
+    cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
 

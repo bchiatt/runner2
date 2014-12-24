@@ -49,15 +49,15 @@ describe('Precaution', function(){
 
   describe('.findById', function(){
     it('should find a precaution', function(done){
-      Precaution.findById(4, function(err, results){
+      Precaution.findById({org: {id: 1}}, 4, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         expect(results.name).to.equal('ISO');
         done();
       });
     });
-    it('should NOT find a precaution - not exist', function(done){
-      Precaution.findById(9, function(err, results){
+    it('should NOT find a precaution - wrong org', function(done){
+      Precaution.findById({org: {id: 2}}, 4, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.null;
         done();
@@ -77,8 +77,8 @@ describe('Precaution', function(){
 
   describe('.update', function(){
     it('should update a precaution', function(done){
-      Precaution.update({org: {id: 1}}, {name: 'example', description: 'more info'}, function(err, results){
-        expect(results).to.equal(1);
+      Precaution.update({org: {id: 1}}, {id: 2, name: 'example', description: 'more info'}, function(err, results){
+        expect(results.precaution_update).to.equal(true);
         expect(err).to.be.null;
         done();
       });

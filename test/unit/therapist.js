@@ -54,15 +54,15 @@ describe('Therapist', function(){
 
   describe('.findById', function(){
     it('should find a therapist', function(done){
-      Therapist.findById(2, function(err, results){
+      Therapist.findById({org: {id: 1}}, 2, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         expect(results.first).to.equal('John');
         done();
       });
     });
-    it('should NOT find a therapist - not exist', function(done){
-      Therapist.findById(12, function(err, results){
+    it('should NOT find a therapist - wrong org', function(done){
+      Therapist.findById({org: {id: 2}}, 2, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.null;
         done();
@@ -94,7 +94,7 @@ describe('Therapist', function(){
                      phone: '615-555-2468'
                    };
       Therapist.update({org: {id: 1}}, therapist, function(err, results){
-        expect(results).to.equal(1);
+        expect(results.therapist_update).to.equal(true);
         expect(err).to.be.null;
         done();
       });

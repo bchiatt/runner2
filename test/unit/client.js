@@ -42,7 +42,7 @@ describe('Client', function(){
 
   describe('.findById', function(){
     it('should find a client', function(done){
-      Client.findById(2, function(err, results){
+      Client.findById({org: {id: 1}}, 2, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         expect(results.last).to.equal('Frank');
@@ -50,7 +50,7 @@ describe('Client', function(){
       });
     });
     it('should NOT find a client - not exist', function(done){
-      Client.findById(9, function(err, results){
+      Client.findById({org: {id: 1}}, 9, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.null;
         done();
@@ -81,7 +81,7 @@ describe('Client', function(){
                      dischargeDate: '12/31/14'
                    };
       Client.update({org: {id: 1}}, client, function(err, results){
-        expect(results).to.equal(1);
+        expect(results.client_update).to.equal(true);
         expect(err).to.be.null;
         done();
       });

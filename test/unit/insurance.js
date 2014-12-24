@@ -49,15 +49,15 @@ describe('Insurance', function(){
 
   describe('.findById', function(){
     it('should find an insurance', function(done){
-      Insurance.findById(1, function(err, results){
+      Insurance.findById({org: {id: 1}}, 1, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         expect(results.name).to.equal('Medicare A');
         done();
       });
     });
-    it('should NOT find an insurance - not exist', function(done){
-      Insurance.findById(5, function(err, results){
+    it('should NOT find an insurance - wrong org', function(done){
+      Insurance.findById({org: {id: 2}}, 5, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.null;
         done();
@@ -78,7 +78,7 @@ describe('Insurance', function(){
   describe('.update', function(){
     it('should update a insurance', function(done){
       Insurance.update({org: {id: 1}}, {id: 1, name: 'BCBS', isRug: true}, function(err, results){
-        expect(results).to.equal(1);
+        expect(results.insurance_update).to.equal(true);
         expect(err).to.be.null;
         done();
       });

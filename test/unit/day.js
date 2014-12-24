@@ -49,7 +49,7 @@ describe('Day', function(){
 
   describe('.findById', function(){
     it('should find a day', function(done){
-      Day.findById(1, function(err, results){
+      Day.findById({org: {id: 1}}, 1, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         expect(results.abbr).to.equal('Mon');
@@ -57,7 +57,7 @@ describe('Day', function(){
       });
     });
     it('should NOT find a day - not exist', function(done){
-      Day.findById(9, function(err, results){
+      Day.findById({org: {id: 1}}, 9, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.null;
         done();
@@ -77,8 +77,8 @@ describe('Day', function(){
 
   describe('.update', function(){
     it('should update a day', function(done){
-      Day.update({org: {id: 1}}, {name: 'Xyz123', abbr: 'Xyz', letter: 'Z'}, function(err, results){
-        expect(results).to.equal(1);
+      Day.update({org: {id: 1}}, {id: 1, name: 'Xyz123', abbr: 'Xyz', letter: 'Z'}, function(err, results){
+        expect(results.day_update).to.equal(true);
         expect(err).to.be.null;
         done();
       });
