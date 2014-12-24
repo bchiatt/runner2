@@ -1,11 +1,16 @@
-## name of project
+# RUG Runner 2.0
+============================
 ### Code Badges
+##### Travis
 [![Build Status](https://travis-ci.org/bchiatt/runner2.svg?branch=dev)](https://travis-ci.org/bchiatt/runner2)
+##### Coveralls
 [![Coverage Status](https://coveralls.io/repos/bchiatt/runner2/badge.png?branch=dev)](https://coveralls.io/r/bchiatt/runner2?branch=dev)
+##### SauceLabs
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/bchiatt-runner2.svg)](https://saucelabs.com/u/bchiatt-runner2)
 
 ### Screenshots
-![Image1](/docs/screenshots/one.jpg)
-![Image2](/docs/screenshots/two.jpg)
+![Image1](/docs/screenshots/schema.png)
+![Image2](/docs/screenshots/register.png)
 
 ### Description
 write a description about your project
