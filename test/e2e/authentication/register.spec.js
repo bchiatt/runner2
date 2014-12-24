@@ -1,17 +1,27 @@
 'use strict';
 
-var cp = require('child_process'),
-h  = require('../../helpers/helpers'),
-db = h.getdb();
+var h  = require('../../helpers/helpers');
 
 describe('register', function(){
   beforeEach(function(done){
-    cp.execFile(__dirname + '/../../scripts/clean-db.sh', [db], {cwd:__dirname + '/../../scripts'}, function(err, stdout, stderr){
-      done();
-    });
+		browser.get('/#/register');
+		done();
   });
 
   it('should get register page', function(){
-    browser.get('/#/register');
+    expect(element(by.css('div[ui-view] > h1')).getText()).toEqual('Register');
+  });
+
+  it('should register a new user', function(){
+    element(by.model('user.orgName')).sendKeys('ABCD' + h.random(5000));
+    element(by.model('user.city')).sendKeys('Amboy');
+    element(by.model('user.state')).sendKeys('IN');
+    element(by.model('user.first')).sendKeys('silly');
+    element(by.model('user.last')).sendKeys('billy');
+    element(by.model('user.username')).sendKeys('billy' + h.random(5000));
+    element(by.model('user.password')).sendKeys('1234');
+    element(by.css('button[ng-click=\'register()\']')).click();
+
+    expect(element(by.css('div[ui-view] > h1')).getText()).toEqual('Login');
   });
 });

@@ -1,11 +1,10 @@
-var config = {};
+var config;
 
-config.seleniumAddress = 'http://localhost:4444/wd/hub';
-config.multiCapabilities = [
-{
-  'browserName': 'firefox'
+if(process.env.TRAVIS_JOB_NUMBER){
+  config = require('./protractor-sauce.conf');
+}else{
+  config = require('./protractor-local.conf');
 }
-];
 
 config.suites = {
   homepage: 'test/e2e/homepage/**/*.spec.js',

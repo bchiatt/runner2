@@ -3,6 +3,6 @@
 describe('homepage', function(){
   it('should get the homepage', function(){
     browser.get('/');
-    expect(browser.getTitle()).toEqual('NoteTaker');
+    expect(browser.getTitle()).toEqual('RUG Runner');
   });
 });
