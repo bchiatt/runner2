@@ -34,3 +34,8 @@ psql $1 -f ../../db/functions/therapist_update.sql
 psql $1 -f ../../db/functions/work_schedule_add.sql
 psql $1 -f ../../db/functions/work_schedule_update.sql
 psql $1 -f ../../db/functions/work_schedule_nuke.sql
+psql $1 -f ../../db/functions/treatment_plan_add.sql
+psql $1 -f ../../db/functions/treatment_plan_update.sql
+psql $1 -f ../../db/functions/treatment_add.sql
+psql $1 -f ../../db/functions/treatment_update.sql
+psql $1 -f ../../db/functions/treatment_nuke.sql

@@ -114,15 +114,15 @@ insert into clients (id, org_id, ins_id, first, last, photo, room, admit_date, d
 insert into clients (id, org_id, ins_id, first, last, photo, room, admit_date, discharge_date) values (4, 1, 2, 'Fred', 'Frank', 'image6.png', '515A', '11/18/14', '12/31/14');
 
 -- # populate treatment_plans table
-insert into treatment_plans (org_id, clients_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 3, '12/11/14', '1/14/15', '11/11/14', 4, 5, 7);
-insert into treatment_plans (org_id, clients_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 3, '12/10/14', '1/13/15', '11/10/14', 2, 5, 7);
-insert into treatment_plans (org_id, clients_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 3, '12/12/14', '1/15/15', '11/12/14', 5, 5, 7);
+insert into treatment_plans (org_id, client_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 3, '12/11/14', '1/14/15', '11/11/14', 4, 5, 7);
+insert into treatment_plans (org_id, client_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 3, '12/10/14', '1/13/15', '11/10/14', 2, 5, 7);
+insert into treatment_plans (org_id, client_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 3, '12/12/14', '1/15/15', '11/12/14', 5, 5, 7);
 
 delete from treatment_plans;
 
-insert into treatment_plans (id, org_id, clients_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 1, 3, '12/11/14', '1/14/15', '11/11/14', 4, 5, 7);
-insert into treatment_plans (id, org_id, clients_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (2, 1, 3, 1, 3, '12/10/14', '1/13/15', '11/10/14', 2, 5, 7);
-insert into treatment_plans (id, org_id, clients_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (3, 1, 2, 1, 3, '12/12/14', '1/15/15', '11/12/14', 5, 5, 7);
+insert into treatment_plans (id, org_id, client_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (1, 1, 1, 1, 3, '12/11/14', '1/14/15', '11/11/14', 4, 5, 7);
+insert into treatment_plans (id, org_id, client_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (2, 1, 3, 1, 3, '12/10/14', '1/13/15', '11/10/14', 2, 5, 7);
+insert into treatment_plans (id, org_id, client_id, eval_therapist_id, disc_id, eval_date, discharge_date, recert_date, weekly_day_id, frequency_low, frequency_high) values (3, 1, 2, 1, 3, '12/12/14', '1/15/15', '11/12/14', 5, 5, 7);
 
 -- # populate clients_precautions table
 insert into clients_precautions (client_id, precaution_id) values (1, 2);
@@ -132,16 +132,16 @@ insert into clients_precautions (client_id, precaution_id) values (2, 2);
 insert into clients_precautions (client_id, precaution_id) values (2, 4);
 
 -- # populate treatments table
-insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (1, 2, 1, 2, 1, 45, 0, '12/24/14', 25, true, true);
-insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (2, 2, 1, 2, 2, 45, 0, '12/24/14', 25, false, false);
-insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (1, 2, 1, 2, 1, 45, 0, '12/25/14', 26, true, false);
-insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (1, 2, 1, 2, 1, 45, 0, '12/26/14', 27, false, false);
-insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (1, 2, 1, 2, 1, 45, 0, '12/27/14', 28, false, false);
+insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (1, 2, 1, 2, 1, 45, 0, '12/24/14', 25, true, true, 1);
+insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (2, 2, 1, 2, 2, 45, 0, '12/24/14', 25, false, false, 1);
+insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (1, 2, 1, 2, 1, 45, 0, '12/25/14', 26, true, false, 2);
+insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (1, 2, 1, 2, 1, 45, 0, '12/26/14', 27, false, false, 2);
+insert into treatments (client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (1, 2, 1, 2, 1, 45, 0, '12/27/14', 28, false, false, 3);
 
 delete from treatments;
 
-insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (1, 1, 2, 1, 2, 1, 45, 0, '12/24/14', 25, true, true);
-insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (2, 2, 2, 1, 2, 2, 45, 0, '12/24/14', 25, false, false);
-insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (3, 1, 2, 1, 2, 1, 45, 0, '12/25/14', 26, true, false);
-insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (4, 1, 2, 1, 2, 1, 45, 0, '12/26/14', 27, false, false);
-insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, date, day_count, is_note_done, is_archived) values (5, 1, 2, 1, 2, 1, 45, 0, '12/27/14', 28, false, false);
+insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (1, 1, 2, 1, 2, 1, 45, 0, '12/24/14', 25, true, true, 1);
+insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (2, 2, 2, 1, 2, 2, 45, 0, '12/24/14', 25, false, false, 1);
+insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (3, 1, 2, 1, 2, 1, 45, 0, '12/25/14', 26, true, false, 2);
+insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (4, 1, 2, 2, 2, 1, 45, 0, '12/26/14', 27, false, false, 2);
+insert into treatments (id, client_id, therapist_id, org_id, disc_id, ins_id, mins_expected, mins_actual, tx_date, day_count, is_note_done, is_archived, plan_id) values (5, 1, 2, 1, 2, 1, 45, 0, '12/27/14', 28, false, false, 3);

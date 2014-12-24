@@ -1,7 +1,7 @@
 create table treatment_plans(
   id serial primary key,
   org_id integer not null references orgs(id),
-  clients_id integer not null references clients(id),
+  client_id integer not null references clients(id),
   eval_therapist_id integer not null references therapists(id),
   disc_id integer not null references disciplines(id),
   eval_date date not null,

@@ -30,10 +30,10 @@ Insurance.add = function(user, obj, cb){
 };
 
 Insurance.update = function(user, obj, cb){
-   pg.query('select insurance_update($1, $2, $3, $4)',
-       [obj.id, user.org.id, obj.name, obj.isRug], function(err, results){
-     cb(err, results && results.rows ? results.rows[0] : null);
-   });
+  pg.query('select insurance_update($1, $2, $3, $4)',
+      [obj.id, user.org.id, obj.name, obj.isRug], function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
+  });
 };
 
 module.exports = Insurance;
