@@ -85,7 +85,24 @@ describe('WorkSchedule', function(){
   describe('.update', function(){
     it('should update a work schedule', function(done){
       WorkSchedule.update({org: {id: 1}}, {id: 1, dayId: 4, startTime: '6:00 am'}, function(err, results){
-        expect(results).to.equal(1);
+        expect(results.work_schedule_update).to.equal(true);
+        expect(err).to.be.null;
+        done();
+      });
+    });
+  });
+
+  describe('.nuke', function(){
+    it('should delete a work schedule entry', function(done){
+      WorkSchedule.nuke({org: {id: 1}}, 2, function(err, results){
+        expect(results.work_schedule_nuke).to.equal(2);
+        expect(err).to.be.null;
+        done();
+      });
+    });
+    it('should NOT delete a work schedule entry - wrong org', function(done){
+      WorkSchedule.nuke({org: {id: 1}}, 3, function(err, results){
+        expect(results.work_schedule_nuke).to.be.null;
         expect(err).to.be.null;
         done();
       });

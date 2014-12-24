@@ -43,7 +43,14 @@ WorkSchedule.update = function(user, obj, cb){
         obj.isLateEval, obj.startTime, obj.endTime
       ],
       function(err, results){
-    cb(err, results && results.rowCount ? results.rowCount : null);
+    cb(err, results && results.rows ? results.rows[0] : null);
+  });
+};
+
+WorkSchedule.nuke = function(user, schedId, cb){
+  pg.query('select work_schedule_nuke($1, $2)', [user.org.id, schedId],
+      function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
 
