@@ -97,7 +97,7 @@ delete from work_schedules;
 
 insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 1, 2, true, '8:15 am', '5:15 pm');
 insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (2, 1, 1, 3, false, '7:15 am', '3:15 pm');
-insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (3, 2, 1, 3, true, '9:00 am', '5:30 pm');
+insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (3, 2, 2, 3, true, '9:00 am', '5:30 pm');
 insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (4, 1, 1, 4, true, '8:15 am', '5:15 pm');
 
 -- # populate clients table

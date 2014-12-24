@@ -31,3 +31,5 @@ psql $1 -f ../../db/functions/client_add.sql
 psql $1 -f ../../db/functions/client_update.sql
 psql $1 -f ../../db/functions/therapist_add.sql
 psql $1 -f ../../db/functions/therapist_update.sql
+psql $1 -f ../../db/functions/work_schedule_add.sql
+psql $1 -f ../../db/functions/work_schedule_update.sql
