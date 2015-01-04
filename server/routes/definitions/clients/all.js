@@ -7,6 +7,7 @@ module.exports = {
   tags:['clients'],
   handler: function(request, reply){
     Client.all(request.auth.credentials, function(err, clients){
+      console.log(err);
       reply({clients:clients}).code(err ? 400 : 200);
     });
   }

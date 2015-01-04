@@ -3,6 +3,8 @@
 
   angular.module('runner2')
   .controller('WorkSchedsCtrl', ['$scope', 'WorkSchedule', function($scope, WorkSchedule){
-    console.log('work schedules');
+    WorkSchedule.all().then(function(response){
+      console.log(response.data.workScheds);
+    });
   }]);
 })();

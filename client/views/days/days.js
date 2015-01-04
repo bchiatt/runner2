@@ -3,6 +3,8 @@
 
   angular.module('runner2')
   .controller('DaysCtrl', ['$scope', 'Day', function($scope, Day){
-    console.log('days');
+    Day.all().then(function(response){
+      console.log(response.data.days);
+    });
   }]);
 })();

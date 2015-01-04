@@ -3,6 +3,8 @@
 
   angular.module('runner2')
   .controller('PrecautionsCtrl', ['$scope', 'Precaution', function($scope, Precaution){
-    console.log('precautions');
+    Precaution.all().then(function(response){
+      console.log(response.data.precautions);
+    });
   }]);
 })();

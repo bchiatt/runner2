@@ -3,6 +3,8 @@
 
   angular.module('runner2')
   .controller('ClientsCtrl', ['$scope', 'Client', function($scope, Client){
-    console.log('clients');
+    Client.all().then(function(response){
+      console.log(response.data.clients);
+    });
   }]);
 })();

@@ -3,6 +3,8 @@
 
   angular.module('runner2')
   .controller('TreatmentsCtrl', ['$scope', 'Treatment', function($scope, Treatment){
-    console.log('treatments');
+    Treatment.all().then(function(response){
+      console.log(response.data.treatments);
+    });
   }]);
 })();
