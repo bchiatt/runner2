@@ -19,10 +19,11 @@ User.register = function(obj, orgId, cb){
 
 User.login = function(obj, cb){
   pg.query('select * from users where username = $1 limit 1', [obj.username], function(err, results){
-    var user = results.rows[0];
-    if(!user){return cb(err, null);}
+    if(!results.rows[0]){return cb(err, null);}
 
-    var isAuth = bcrypt.compareSync(obj.password, user.password);
+    var user = results.rows[0],
+        isAuth = bcrypt.compareSync(obj.password, user.password);
+
     if(!isAuth){return cb(err, null);}
 
     delete user.password;
