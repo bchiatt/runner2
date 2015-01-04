@@ -29,7 +29,6 @@
   "disallowMultipleLineStrings": true,
   "validateQuoteMarks": { "mark": "'", "escape": true },
   "disallowMixedSpacesAndTabs": true,
-  "disallowTrailingWhitespace": true,
   "disallowTrailingComma": true,
   "requireLineFeedAtFileEnd": true,
   "requireCapitalizedConstructors": true,

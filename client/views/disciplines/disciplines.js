@@ -3,8 +3,14 @@
 
   angular.module('runner2')
   .controller('DisciplinesCtrl', ['$scope', 'Discipline', function($scope, Discipline){
+    $scope.disciplines = [];
+    
     Discipline.all().then(function(response){
-      console.log(response.data.disciplines);
+     $scope.disciplines = response.data.disciplines || [];
     });
+    
+    $scope.edit = function(id){
+      console.log('id: ', id);
+    };
   }]);
 })();

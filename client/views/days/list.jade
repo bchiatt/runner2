@@ -1,1 +1,15 @@
 h4 DAYS
+
+table
+  thead
+    tr
+      th Name
+      th Abbreviation
+      th Letter
+      th Edit
+  tbody
+    tr(ng-repeat='d in days')
+      td {{d.full_name}}
+      td {{d.abbr}}
+      td {{d.letter}}
+      td: a(ng-click='edit(d.id)') edit

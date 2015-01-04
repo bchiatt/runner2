@@ -1,1 +1,13 @@
 h4 DISCIPLINES
+
+table
+  thead
+    tr
+      th Name
+      th Abbreviation
+      th Edit
+  tbody
+    tr(ng-repeat='d in disciplines')
+      td {{d.name}}
+      td {{d.abbr}}
+      td: a(ng-click='edit(d.id)') edit

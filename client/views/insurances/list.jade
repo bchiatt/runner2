@@ -1,1 +1,13 @@
 h4 INSURANCES
+
+table
+  thead
+    tr
+      th Name
+      th Is RUG?
+      th Edit
+  tbody
+    tr(ng-repeat='i in insurances')
+      td {{i.name}}
+      td {{i.is_rug}}
+      td: a(ng-click='edit(i.id)') edit

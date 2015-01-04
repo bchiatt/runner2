@@ -1,1 +1,13 @@
 h4 PRECAUTIONS
+
+table
+  thead
+    tr
+      th Name
+      th Description
+      th Edit
+  tbody
+    tr(ng-repeat='p in precautions')
+      td {{p.name}}
+      td {{p.description}}
+      td: a(ng-click='edit(p.id)') edit
