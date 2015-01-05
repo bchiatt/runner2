@@ -10,4 +10,7 @@ table
     tr(ng-repeat='p in precautions')
       td {{p.name}}
       td {{p.description}}
-      td: a(ng-click='edit(p.id)') edit
+      td: a(ng-click='toggleModal(p)') edit
+
+div(ng-cloak)
+  div(bc-modal, show='modalShown', obj='{{selected}}', folder='precautions', file='edit', update='update(data)')

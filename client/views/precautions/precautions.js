@@ -3,18 +3,21 @@
 
   angular.module('runner2')
   .controller('PrecautionsCtrl', ['$scope', 'Precaution', function($scope, Precaution){
+    $scope.modalShown = false;
     $scope.precautions = [];
+    $scope.selected = {};
     
     Precaution.all().then(function(response){
       $scope.precautions = response.data.precautions || [];
     });
-    
-    $scope.edit = function(id){
-      console.log('id: ', id);
+   
+    $scope.update = function(data){
+      console.log('data:', data);
     };
- 
-    $scope.update = function(){
-     console.log('update!'); 
+    
+    $scope.toggleModal = function(p){
+      $scope.selected = p;
+      $scope.modalShown = !$scope.modalShown; 
     };
   }]);
 })();

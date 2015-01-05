@@ -1,0 +1,8 @@
+.ng-modal(ng-show='show')
+  .reveal-modal(ng-show='show')
+    a.close-reveal-modal(ng-click='hideModal()') &#215;
+    h1 form
+    h1 {{obj}}
+    input(type=text, ng-model='obj.description')
+    button.button(ng-click='update({data: obj})') Save
+  .reveal-modal-bg(ng-click='hideModal()')

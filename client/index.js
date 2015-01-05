@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('runner2', ['ui.router', 'angularFileUpload'])
+  angular.module('runner2', ['ui.router', 'ngAnimate','angularFileUpload'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
