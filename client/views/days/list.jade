@@ -3,13 +3,19 @@ h4 DAYS
 table
   thead
     tr
+      th Order
       th Name
       th Abbreviation
       th Letter
       th Edit
   tbody
-    tr(ng-repeat='d in days')
+    tr(ng-repeat='d in days | orderBy: \'num\'')
+      td {{d.num}}
       td {{d.full_name}}
       td {{d.abbr}}
       td {{d.letter}}
-      td: a(ng-click='edit(d.id)') edit
+      td: a(ng-click='toggleModal(d)') edit
+
+button.button(ng-show='days.length < 7', ng-click='toggleModal({})') Create
+
+div(bc-modal, show='modalShown', obj='{{selected}}', folder='days', file='edit', save='save(data)')

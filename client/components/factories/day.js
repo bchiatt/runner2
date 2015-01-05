@@ -8,6 +8,14 @@
       return $http.get('/days');
     }
 
-    return {all:all};
+    function create(obj){
+      return $http.post('/days', obj);
+    }
+
+    function update(obj){
+      return $http.put('/days', obj);
+    }
+
+    return {all:all, create:create, update:update};
   }]);
 })();

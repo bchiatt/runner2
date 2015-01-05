@@ -6,6 +6,8 @@ module.exports = [
   {method: 'post',   path: '/login',       config: require('../definitions/users/login')},
   {method: 'delete', path: '/logout',      config: require('../definitions/users/logout')},
   {method: 'get',    path: '/days',        config: require('../definitions/days/all')},
+  {method: 'post',   path: '/days',        config: require('../definitions/days/create')},
+  {method: 'put',    path: '/days',        config: require('../definitions/days/update')},
   {method: 'get',    path: '/disciplines', config: require('../definitions/disciplines/all')},
   {method: 'post',   path: '/disciplines', config: require('../definitions/disciplines/create')},
   {method: 'put',    path: '/disciplines', config: require('../definitions/disciplines/update')},

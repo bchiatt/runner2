@@ -60,23 +60,23 @@ insert into disciplines (id, org_id, name, abbr) values (2, 1, 'Physical Therapy
 insert into disciplines (id, org_id, name, abbr) values (3, 1, 'Speech Therapy', 'ST');
 
 -- # populate days_in_week table
-insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Monday', 'Mon', 'M');
-insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Tuesday', 'Tue', 'T');
-insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Wednesday', 'Wed', 'W');
-insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Thursday', 'Thu', 'R');
-insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Friday', 'Fri', 'F');
-insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Saturday', 'Sat', 'S');
-insert into days_in_week (org_id, full_name, abbr, letter) values (1, 'Sunday', 'Sun', 'U');
+insert into days_in_week (org_id, num, full_name, abbr, letter) values (1, 1, 'Monday', 'Mon', 'M');
+insert into days_in_week (org_id, num, full_name, abbr, letter) values (1, 2, 'Tuesday', 'Tue', 'T');
+insert into days_in_week (org_id, num, full_name, abbr, letter) values (1, 3, 'Wednesday', 'Wed', 'W');
+insert into days_in_week (org_id, num, full_name, abbr, letter) values (1, 4, 'Thursday', 'Thu', 'R');
+insert into days_in_week (org_id, num, full_name, abbr, letter) values (1, 5, 'Friday', 'Fri', 'F');
+insert into days_in_week (org_id, num, full_name, abbr, letter) values (1, 6, 'Saturday', 'Sat', 'S');
+insert into days_in_week (org_id, num, full_name, abbr, letter) values (1, 7, 'Sunday', 'Sun', 'U');
 
 delete from days_in_week;
 
-insert into days_in_week (id, org_id, full_name, abbr, letter) values (1, 1, 'Monday', 'Mon', 'M');
-insert into days_in_week (id, org_id, full_name, abbr, letter) values (2, 1, 'Tuesday', 'Tue', 'T');
-insert into days_in_week (id, org_id, full_name, abbr, letter) values (3, 1, 'Wednesday', 'Wed', 'W');
-insert into days_in_week (id, org_id, full_name, abbr, letter) values (4, 1, 'Thursday', 'Thu', 'R');
-insert into days_in_week (id, org_id, full_name, abbr, letter) values (5, 1, 'Friday', 'Fri', 'F');
-insert into days_in_week (id, org_id, full_name, abbr, letter) values (6, 1, 'Saturday', 'Sat', 'S');
-insert into days_in_week (id, org_id, full_name, abbr, letter) values (7, 1, 'Sunday', 'Sun', 'U');
+insert into days_in_week (id, org_id, num, full_name, abbr, letter) values (1, 1, 1, 'Monday', 'Mon', 'M');
+insert into days_in_week (id, org_id, num, full_name, abbr, letter) values (2, 1, 2, 'Tuesday', 'Tue', 'T');
+insert into days_in_week (id, org_id, num, full_name, abbr, letter) values (3, 1, 3, 'Wednesday', 'Wed', 'W');
+insert into days_in_week (id, org_id, num, full_name, abbr, letter) values (4, 1, 4, 'Thursday', 'Thu', 'R');
+insert into days_in_week (id, org_id, num, full_name, abbr, letter) values (5, 1, 5, 'Friday', 'Fri', 'F');
+insert into days_in_week (id, org_id, num, full_name, abbr, letter) values (6, 1, 6, 'Saturday', 'Sat', 'S');
+insert into days_in_week (id, org_id, num, full_name, abbr, letter) values (7, 1, 7, 'Sunday', 'Sun', 'U');
 
 -- # populate therapists table
 insert into therapists (org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone) values (1, 2, 'Jane', 'Doe', true, 'image.png', 80, '615-555-1234');
