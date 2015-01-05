@@ -10,6 +10,8 @@ module.exports = [
   {method: 'post',   path: '/disciplines', config: require('../definitions/disciplines/create')},
   {method: 'put',    path: '/disciplines', config: require('../definitions/disciplines/update')},
   {method: 'get',    path: '/insurances',  config: require('../definitions/insurances/all')},
+  {method: 'post',   path: '/insurances',  config: require('../definitions/insurances/create')},
+  {method: 'put',    path: '/insurances',  config: require('../definitions/insurances/update')},
   {method: 'get',    path: '/precautions', config: require('../definitions/precautions/all')},
   {method: 'post',   path: '/precautions', config: require('../definitions/precautions/create')},
   {method: 'put',    path: '/precautions', config: require('../definitions/precautions/update')},

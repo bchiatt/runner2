@@ -4,7 +4,7 @@ var pg     = require('../postgres/manager');
 
 function Insurance(obj){
   this.name  = obj.name;
-  this.isRug = obj.isRug;
+  this.isRug = obj.is_rug;
 }
 
 Insurance.findById = function(user, id, cb){
@@ -31,7 +31,7 @@ Insurance.add = function(user, obj, cb){
 
 Insurance.update = function(user, obj, cb){
   pg.query('select insurance_update($1, $2, $3, $4)',
-      [obj.id, user.org.id, obj.name, obj.isRug], function(err, results){
+      [obj.id, user.org.id, obj.name, obj.is_rug], function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };

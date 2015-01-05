@@ -3,14 +3,36 @@
 
   angular.module('runner2')
   .controller('InsurancesCtrl', ['$scope', 'Insurance', function($scope, Insurance){
+    $scope.modalShown = false;
     $scope.insurances = [];
-    
-    Insurance.all().then(function(response){
-     $scope.insurances = response.data.insurances || [];
-    });
-    
-    $scope.edit = function(id){
-      console.log('id: ', id);
+    $scope.selected = {};
+
+    getAll();
+
+    function getAll(){
+      Insurance.all().then(function(response){
+        $scope.insurances = response.data.insurances || [];
+      });
+    }
+
+    $scope.save = function(data){
+      if($scope.selected.id){
+        Insurance.update(data).then(function(response){
+          getAll();
+        });
+      }else{
+        console.log(data);
+        Insurance.create(data).then(function(response){
+          getAll();
+        }, function(response){
+          console.log(response);
+        });
+      }
+    };
+
+    $scope.toggleModal = function(i){
+      $scope.selected = i;
+      $scope.modalShown = !$scope.modalShown;
     };
   }]);
 })();

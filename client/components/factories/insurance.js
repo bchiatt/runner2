@@ -8,6 +8,14 @@
       return $http.get('/insurances');
     }
 
-    return {all:all};
+    function create(obj){
+      return $http.post('/insurances', obj);
+    }
+
+    function update(obj){
+      return $http.put('/insurances', obj);
+    }
+
+    return {all:all, create:create, update:update};
   }]);
 })();

@@ -6,6 +6,7 @@
     $scope.modalShown = false;
     $scope.precautions = [];
     $scope.selected = {};
+    
     getAll();
     
     function getAll(){
@@ -21,7 +22,6 @@
         });
       }else{
         Precaution.create(data).then(function(response){
-          console.log('response:', response);
           getAll();
         });
       }

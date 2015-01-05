@@ -10,13 +10,14 @@
     o.link        = function(scope, element, attrs){
                       scope.hideModal = function(){
                         scope.show = false;
+                        scope.obj = {};
                       };
-      
+
                       scope.execute = function(){
-                        scope.save({data: scope.obj}); 
+                        scope.save({data: scope.obj});
                         scope.hideModal();
                       };
- 
+
                       scope.$watch('obj', function(){
                         scope.obj = angular.fromJson(scope.obj);
                       });
@@ -24,7 +25,7 @@
     o.templateUrl = function(element, attr){
                       return 'views/' + attr.folder + '/' + attr.file + '.html';
                     };
-    
+
     return o;
   }]);
 })();
