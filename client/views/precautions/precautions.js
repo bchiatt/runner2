@@ -20,7 +20,10 @@
           getAll();
         });
       }else{
-        console.log('creating new: ', data);  
+        Precaution.create(data).then(function(response){
+          console.log('response:', response);
+          getAll();
+        });
       }
     };
     

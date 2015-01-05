@@ -7,7 +7,11 @@ table
       th Abbreviation
       th Edit
   tbody
-    tr(ng-repeat='d in disciplines')
+    tr(ng-repeat='d in disciplines | orderBy: \'name\'')
       td {{d.name}}
       td {{d.abbr}}
-      td: a(ng-click='edit(d.id)') edit
+      td: a(ng-click='toggleModal(d)') edit
+      
+button.button(ng-click='toggleModal({})') Create
+
+div(bc-modal, show='modalShown', obj='{{selected}}', folder='disciplines', file='edit', save='save(data)')

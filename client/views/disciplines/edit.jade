@@ -2,7 +2,7 @@
   .reveal-modal(ng-show='show')
     a.close-reveal-modal(ng-click='hideModal()') &#215;
     
-    h1 Precaution
+    h1 Discipline
     form
         .row
            .small-3.columns
@@ -13,8 +13,8 @@
         .row
            .small-3.columns
            .small-6.columns
-              label(for='description') Description
-              input#description(type='text', name='description', ng-model='obj.description')
+              label(for='abbr') Abbreviation
+              input#abbr(type='text', name='abbr', ng-model='obj.abbr')
            .small-3.columns
         .row
            .small-3.columns

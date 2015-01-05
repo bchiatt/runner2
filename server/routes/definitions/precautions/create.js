@@ -14,8 +14,7 @@ module.exports = {
   },
   handler: function(request, reply){
     Precaution.add(request.auth.credentials, request.payload, function(err, results){
-      console.log(results);
-      //reply({precautions:precautions}).code(err ? 400 : 200);
+      reply().code(err ? 400 : 200);
     });
   }
 };

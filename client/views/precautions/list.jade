@@ -12,5 +12,6 @@ table
       td {{p.description}}
       td: a(ng-click='toggleModal(p)') edit
 
-div(ng-cloak)
-  div(bc-modal, show='modalShown', obj='{{selected}}', folder='precautions', file='edit', save='save(data)')
+button.button(ng-click='toggleModal({})') Create
+
+div(bc-modal, show='modalShown', obj='{{selected}}', folder='precautions', file='edit', save='save(data)')

@@ -7,7 +7,6 @@
 
     o.restrict    = 'A';
     o.scope       = {show: '=', obj: '@', save: '&'};
-    o.replace     = true;
     o.link        = function(scope, element, attrs){
                       scope.hideModal = function(){
                         scope.show = false;

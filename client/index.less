@@ -21,6 +21,10 @@ body{
   background-color: @SILVER;
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak{
+  display: none !important;
+}
+
 div[ui-view]:nth-of-type(1){
   height: 95vh;
 }
@@ -32,51 +36,4 @@ input.ng-invalid, select.ng-invalid{
 footer p{
   padding-top: 10px;
   color: #777;
-}
-
-/************************************/
-//            MODAL                 //
-/************************************/
-
-.reveal-modal{
-  min-height: 300px;
-}
-
-.ng-modal {
-  transition: 0.2s ease-in-out opacity;
-}
-
-.ng-modal .reveal-modal {
-  display: block;
-  visibility: visible;
-}
-
-.ng-modal .reveal-modal-bg {
-  display: block;
-}
-
-.ng-modal.ng-hide-add,
-.ng-modal.ng-hide-remove{
-  display: block !important;
-}
-
-.ng-modal.ng-hide{
-  opacity: 0;
-}
-
-.reveal-modal{
-  transition: 0.2s ease-in-out all;
-  transition-delay: 0.2s;
-  -webkit-transform: scale(1);
-  opacity: 1;
-}
-
-.reveal-modal.ng-hide-add,
-.reveal-modal.ng-hide-remove{
-  display: block !important;
-}
-
-.reveal-modal.ng-hide{
-  -webkit-transform: scale(0.9);
-  opacity: 0;
 }
