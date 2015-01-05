@@ -9,6 +9,8 @@ module.exports = [
   {method: 'get',    path: '/disciplines', config: require('../definitions/disciplines/all')},
   {method: 'get',    path: '/insurances',  config: require('../definitions/insurances/all')},
   {method: 'get',    path: '/precautions', config: require('../definitions/precautions/all')},
+  {method: 'post',   path: '/precautions', config: require('../definitions/precautions/create')},
+  {method: 'put',    path: '/precautions', config: require('../definitions/precautions/update')},
   {method: 'get',    path: '/therapists',  config: require('../definitions/therapists/all')},
   {method: 'get',    path: '/clients',     config: require('../definitions/clients/all')},
   {method: 'get',    path: '/txplans',     config: require('../definitions/txplans/all')},

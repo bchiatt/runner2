@@ -1,8 +1,24 @@
 .ng-modal(ng-show='show')
   .reveal-modal(ng-show='show')
     a.close-reveal-modal(ng-click='hideModal()') &#215;
-    h1 form
-    h1 {{obj}}
-    input(type=text, ng-model='obj.description')
-    button.button(ng-click='update({data: obj})') Save
+    
+    h1 Precaution
+    form
+        .row
+           .small-3.columns
+           .small-6.columns
+              label(for='name') Name
+              input#name(type='text', name='name', ng-model='obj.name', autofocus)
+           .small-3.columns
+        .row
+           .small-3.columns
+           .small-6.columns
+              label(for='description') Description
+              input#description(type='text', name='city', ng-model='obj.description')
+           .small-3.columns
+        .row
+           .small-3.columns
+           .small-6.columns
+              button.button(ng-click='execute({data: obj})') save
+           .small-3.columns
   .reveal-modal-bg(ng-click='hideModal()')

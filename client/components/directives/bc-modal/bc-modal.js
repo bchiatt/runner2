@@ -6,11 +6,16 @@
     var o = {};
 
     o.restrict    = 'A';
-    o.scope       = {show: '=', obj: '@', update: '&'};
+    o.scope       = {show: '=', obj: '@', save: '&'};
     o.replace     = true;
     o.link        = function(scope, element, attrs){
                       scope.hideModal = function(){
                         scope.show = false;
+                      };
+      
+                      scope.execute = function(){
+                        scope.save({data: scope.obj}); 
+                        scope.hideModal();
                       };
  
                       scope.$watch('obj', function(){

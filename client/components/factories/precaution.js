@@ -7,7 +7,15 @@
     function all(){
       return $http.get('/precautions');
     }
+    
+    function create(obj){
+      return $http.post('/precautions', obj);
+    }
+    
+    function update(obj){
+      return $http.put('/precautions', obj);
+    }
 
-    return {all:all};
+    return {all:all, create:create, update:update};
   }]);
 })();

@@ -6,13 +6,22 @@
     $scope.modalShown = false;
     $scope.precautions = [];
     $scope.selected = {};
+    getAll();
     
-    Precaution.all().then(function(response){
-      $scope.precautions = response.data.precautions || [];
-    });
+    function getAll(){
+      Precaution.all().then(function(response){
+        $scope.precautions = response.data.precautions || [];
+      });
+    }
    
-    $scope.update = function(data){
-      console.log('data:', data);
+    $scope.save = function(data){
+      if($scope.selected.id){
+        Precaution.update(data).then(function(response){
+          getAll();
+        });
+      }else{
+        console.log('creating new: ', data);  
+      }
     };
     
     $scope.toggleModal = function(p){

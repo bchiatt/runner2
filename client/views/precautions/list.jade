@@ -7,10 +7,10 @@ table
       th Description
       th Edit
   tbody
-    tr(ng-repeat='p in precautions')
+    tr(ng-repeat='p in precautions | orderBy: \'name\'')
       td {{p.name}}
       td {{p.description}}
       td: a(ng-click='toggleModal(p)') edit
 
 div(ng-cloak)
-  div(bc-modal, show='modalShown', obj='{{selected}}', folder='precautions', file='edit', update='update(data)')
+  div(bc-modal, show='modalShown', obj='{{selected}}', folder='precautions', file='edit', save='save(data)')
