@@ -18,6 +18,8 @@ module.exports = [
   {method: 'post',   path: '/precautions', config: require('../definitions/precautions/create')},
   {method: 'put',    path: '/precautions', config: require('../definitions/precautions/update')},
   {method: 'get',    path: '/therapists',  config: require('../definitions/therapists/all')},
+  {method: 'post',   path: '/therapists',  config: require('../definitions/therapists/create')},
+  {method: 'put',    path: '/therapists',  config: require('../definitions/therapists/update')},
   {method: 'get',    path: '/clients',     config: require('../definitions/clients/all')},
   {method: 'get',    path: '/txplans',     config: require('../definitions/txplans/all')},
   {method: 'get',    path: '/treatments',  config: require('../definitions/treatments/all')},

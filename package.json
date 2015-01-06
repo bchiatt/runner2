@@ -50,6 +50,7 @@
     "joi": "^5.0.2",
     "jshint-stylish": "^1.0.0",
     "lout": "^6.0.1",
+    "multiline": "^1.0.1",
     "pg": "^4.1.1",
     "request": "^2.51.0",
     "underscore": "^1.7.0"

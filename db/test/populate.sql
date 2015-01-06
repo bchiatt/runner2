@@ -84,8 +84,8 @@ insert into therapists (org_id, disc_id, first, last, is_therapist, photo, produ
 
 delete from therapists;
 
-insert into therapists (id, org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone) values (1, 1, 3, 'Jane', 'Doe', true, 'image1.png', 78, '615-555-1234');
-insert into therapists (id, org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone) values (2, 1, 2, 'John', 'Doe', false, 'image2.png', 83, '615-555-5678');
+insert into therapists (id, org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone, email) values (1, 1, 3, 'Jane', 'Doe', true, 'image1.png', 78, '615-555-1234', 'jane@aol.com');
+insert into therapists (id, org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone, email) values (2, 1, 2, 'John', 'Doe', false, 'image2.png', 83, '615-555-5678', 'john@aol.com');
 
 -- # populate work_schedules table
 insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 2, true, '8:15 am', '5:15 pm');

@@ -3,22 +3,22 @@
     a.close-reveal-modal(ng-click='hideModal()') &#215;
     
     h1 Discipline
-    form
+    form(novalidate, name='disciplineForm')
         .row
            .small-3.columns
            .small-6.columns
               label(for='name') Name
-              input#name(type='text', name='name', ng-model='obj.name', autofocus)
+              input#name(type='text', name='name', ng-model='obj.name', autofocus, required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
               label(for='abbr') Abbreviation
-              input#abbr(type='text', name='abbr', ng-model='obj.abbr')
+              input#abbr(type='text', name='abbr', ng-model='obj.abbr', required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
-              button.button(ng-click='execute({data: obj})') Save
+              button.button(ng-show='disciplineForm.$valid', ng-click='execute({data: obj})') Save
            .small-3.columns
   .reveal-modal-bg(ng-click='hideModal()')

@@ -3,23 +3,25 @@
     a.close-reveal-modal(ng-click='hideModal()') &#215;
     
     h1 Insurance
-    form
-        .row
-           .small-3.columns
-           .small-6.columns
-              label(for='name') Name
-              input#name(type='text', name='name', ng-model='obj.name', autofocus)
-           .small-3.columns
-        .row
-           .small-3.columns
-           .small-6.columns
-              .switch
-                input#isRug(type='checkbox', ng-model='obj.is_rug')
-                label(for='isRug') Is Rug?
-           .small-3.columns
-        .row
-           .small-3.columns
-           .small-6.columns
-              button.button(ng-click='execute({data: obj})') Save
-           .small-3.columns
+    form(novalidate, name='insuranceForm')
+      .row
+        .small-3.columns
+        .small-6.columns
+          label(for='name') Name
+          input#name(type='text', name='name', ng-model='obj.name', autofocus, required)
+        .small-3.columns
+      .row
+        .small-3.columns
+        .small-6.columns
+          label
+            span.has-tip(data-tooltip, aria-haspopup='true', title='Colored means true.') Is Rug?
+          .switch
+            input#isRug(type='checkbox', ng-model='obj.is_rug')
+            label(for='isRug')
+        .small-3.columns
+      .row
+        .small-3.columns
+        .small-6.columns
+          button.button(ng-show='insuranceForm.$valid', ng-click='execute({data: obj})') Save
+        .small-3.columns
   .reveal-modal-bg(ng-click='hideModal()')

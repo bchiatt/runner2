@@ -10,7 +10,6 @@
     o.link        = function(scope, element, attrs){
                       scope.hideModal = function(){
                         scope.show = false;
-                        scope.obj = {};
                       };
 
                       scope.execute = function(){

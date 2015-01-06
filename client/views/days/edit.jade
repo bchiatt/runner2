@@ -3,34 +3,34 @@
     a.close-reveal-modal(ng-click='hideModal()') &#215;
     
     h1 Day
-    form
+    form(novalidate, name='daysForm')
         .row
            .small-3.columns
            .small-6.columns
               label(for='number') Day Number in Week
-              input#number(type='number', name='number', ng-model='obj.num', autofocus)
+              input#number(type='number', name='number', ng-model='obj.num', autofocus, required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
               label(for='name') Name
-              input#name(type='text', name='name', ng-model='obj.full_name')
+              input#name(type='text', name='name', ng-model='obj.full_name', required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
               label(for='abbr') Abbreviation
-              input#abbr(type='text', name='abbr', ng-model='obj.abbr')
+              input#abbr(type='text', name='abbr', ng-model='obj.abbr', required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
               label(for='letter') Letter
-              input#letter(type='text', name='letter', ng-model='obj.letter')
+              input#letter(type='text', name='letter', ng-model='obj.letter', required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
-              button.button(ng-click='execute({data: obj})') Save
+              button.button(ng-show='daysForm.$valid', ng-click='execute({data: obj})') Save
            .small-3.columns
   .reveal-modal-bg(ng-click='hideModal()')

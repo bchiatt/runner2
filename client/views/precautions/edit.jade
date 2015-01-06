@@ -3,22 +3,22 @@
     a.close-reveal-modal(ng-click='hideModal()') &#215;
     
     h1 Precaution
-    form
+    form(novalidate, name='precautionForm')
         .row
            .small-3.columns
            .small-6.columns
               label(for='name') Name
-              input#name(type='text', name='name', ng-model='obj.name', autofocus)
+              input#name(type='text', name='name', ng-model='obj.name', autofocus, required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
               label(for='description') Description
-              input#description(type='text', name='description', ng-model='obj.description')
+              input#description(type='text', name='description', ng-model='obj.description', required)
            .small-3.columns
         .row
            .small-3.columns
            .small-6.columns
-              button.button(ng-click='execute({data: obj})') Save
+              button.button(ng-show='precautionForm.$valid', ng-click='execute({data: obj})') Save
            .small-3.columns
   .reveal-modal-bg(ng-click='hideModal()')

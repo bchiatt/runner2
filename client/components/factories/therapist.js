@@ -8,6 +8,14 @@
       return $http.get('/therapists');
     }
 
-    return {all:all};
+    function create(obj){
+      return $http.post('/therapists', obj);
+    }
+
+    function update(obj){
+      return $http.put('/therapists', obj);
+    }
+
+    return {all:all, create:create, update:update};
   }]);
 })();
