@@ -21,11 +21,9 @@
           getAll();
         });
       }else{
-        console.log(data);
         Insurance.create(data).then(function(response){
           getAll();
         }, function(response){
-          console.log(response);
         });
       }
     };

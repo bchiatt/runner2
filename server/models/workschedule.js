@@ -4,11 +4,11 @@ var pg        = require('../postgres/manager'),
     multiline = require('multiline');
 
 function WorkSchedule(obj){
-  this.therapistId = obj.therapistId;
-  this.dayId       = obj.dayId;
-  this.isLateEval  = obj.isLateEval;
-  this.startTime   = obj.startTime;
-  this.endTime     = obj.endTime;
+  this.therapistId = obj.therapist_id;
+  this.dayId       = obj.day_id;
+  this.isLateEval  = obj.is_late_eval;
+  this.startTime   = obj.start_time;
+  this.endTime     = obj.end_time;
 }
 
 WorkSchedule.findById = function(user, id, cb){
@@ -58,8 +58,8 @@ WorkSchedule.add = function(user, obj, cb){
 WorkSchedule.update = function(user, obj, cb){
   pg.query('select work_schedule_update($1, $2, $3, $4, $5, $6, $7)',
       [
-        obj.id, user.org.id, obj.therapistId, obj.dayId,
-        obj.isLateEval, obj.startTime, obj.endTime
+        obj.id, user.org.id, obj.therapist_id, obj.day_id,
+        obj.is_late_eval, obj.start_time, obj.end_time
       ],
       function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);

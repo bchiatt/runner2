@@ -8,6 +8,14 @@
       return $http.get('/workscheds');
     }
 
-    return {all:all};
+    function create(obj){
+      return $http.post('/workscheds', obj);
+    }
+
+    function update(obj){
+      return $http.put('/workscheds', obj);
+    }
+
+    return {all:all, create:create, update:update};
   }]);
 })();

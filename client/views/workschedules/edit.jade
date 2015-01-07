@@ -19,10 +19,10 @@
       .row
         .small-4.columns
           label(for='start') Start Time
-          input#start(type='time', placeholder="HH:mm:ss", ng-model='obj.start_time')
+          input#start(type='time', placeholder="HH:mm:ss", ng-model='obj.start_time', required)
         .small-4.columns
           label(for='end') End Time
-          input#end(type='time', placeholder="HH:mm:ss", ng-model='obj.end_time')
+          input#end(type='time', placeholder="HH:mm:ss", ng-model='obj.end_time', required)
         .small-4.columns
       .row
         .small-3.columns

@@ -15,13 +15,11 @@ table
       th Edit
       tbody
         tr(ng-repeat='ws in workSchedules| orderBy: \'day_num\'')
-          td {{ws.day_abbr}}
+          td {{::ws.day_abbr}}
           td {{ws.therapist_first}}
           td {{ws.therapist_last}}
-          td {{::clockTime(ws.start_time)}}
-          td {{::clockTime(ws.end_time)}}
-          td {{totalTime(ws.start_time, ws.end_time)}}
-          td {{ws.is_late_eval ? 'YES' : '---'}}
+          td {{::formatAmPm(ws.start_time)}}
+          td {{::formatAmPm(ws.end_time)}}
+          td {{::timeDiff(ws.start_time, ws.end_time)}}
+          td {{::ws.is_late_eval ? 'YES' : '---'}}
           td: a(ng-click='toggleModal(ws)') edit
-          
-button.button(ng-click='toggleModal({})') Create

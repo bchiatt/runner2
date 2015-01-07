@@ -24,5 +24,7 @@ module.exports = [
   {method: 'get',    path: '/txplans',     config: require('../definitions/txplans/all')},
   {method: 'get',    path: '/treatments',  config: require('../definitions/treatments/all')},
   {method: 'get',    path: '/workscheds',  config: require('../definitions/workscheds/all')},
+  {method: 'post',   path: '/workscheds',  config: require('../definitions/workscheds/create')},
+  {method: 'put',    path: '/workscheds',  config: require('../definitions/workscheds/update')},
   {method: 'get',    path: '/status',      config: require('../definitions/users/status')}
 ];
