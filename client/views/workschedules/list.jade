@@ -1,1 +1,27 @@
+div(bc-modal, show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')
+  
 h4 WORK SCHEDULES
+
+table
+  thead
+    tr
+      th Day
+      th First
+      th Last
+      th Start
+      th End
+      th Hours
+      th Late Evals?
+      th Edit
+      tbody
+        tr(ng-repeat='ws in workSchedules| orderBy: \'day_num\'')
+          td {{ws.day_abbr}}
+          td {{ws.therapist_first}}
+          td {{ws.therapist_last}}
+          td {{::clockTime(ws.start_time)}}
+          td {{::clockTime(ws.end_time)}}
+          td {{totalTime(ws.start_time, ws.end_time)}}
+          td {{ws.is_late_eval ? 'YES' : '---'}}
+          td: a(ng-click='toggleModal(ws)') edit
+          
+button.button(ng-click='toggleModal({})') Create

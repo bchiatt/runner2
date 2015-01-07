@@ -19,6 +19,12 @@
 
                       scope.$watch('obj', function(){
                         scope.obj = angular.fromJson(scope.obj);
+                        if(scope.obj.start_time){
+                          scope.obj.start_time= new Date(scope.obj.start_time);
+                        }
+                        if(scope.obj.end_time){
+                          scope.obj.end_time= new Date(scope.obj.end_time);
+                        }
                       });
                     };
     o.templateUrl = function(element, attr){

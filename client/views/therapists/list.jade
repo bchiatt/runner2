@@ -3,25 +3,25 @@ h4 THERAPISTS
 table
   thead
     tr
-      th Photo
       th Last
       th First
       th Discipline
-      th Therapist?
+      th Type
       th Productivity
       th Email
       th Phone
+      th Schedule
       th Edit
   tbody
     tr(ng-repeat='t in therapists | orderBy: \'last\'')
-      td {{t.photo}}
       td {{t.last}}
       td {{t.first}}
       td {{t.disc_abbr}}
-      td {{t.is_therapist}}
+      td {{t.is_therapist ? 'Therapist' : 'Assistant'}}
       td {{t.productivity_goal}}%
       td {{t.email}}
       td {{t.phone}}
+      td: a(sref='') schedule
       td: a(ng-click='toggleModal(t)') edit
           
 button.button(ng-click='toggleModal({})') Create

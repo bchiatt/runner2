@@ -1,6 +1,7 @@
 'use strict';
 
-var pg     = require('../postgres/manager');
+var pg        = require('../postgres/manager'),
+    multiline = require('multiline');
 
 function WorkSchedule(obj){
   this.therapistId = obj.therapistId;
@@ -18,8 +19,26 @@ WorkSchedule.findById = function(user, id, cb){
 };
 
 WorkSchedule.all = function(user, cb){
-  pg.query('select * from work_schedules where org_id = $1',
-      [user.org.id], function(err, results){
+  var sql = multiline.stripIndent(function(){/*
+    select
+      ws.id,
+      ws.is_late_eval,
+      ws.start_time,
+      ws.end_time,
+      ws.day_id,
+      dw.num as day_num,
+      dw.full_name as day_name,
+      dw.abbr as day_abbr,
+      dw.letter as day_letter,
+      ws.therapist_id,
+      t.first as therapist_first,
+      t.last as therapist_last
+    from work_schedules ws
+    inner join days_in_week dw on dw.id = ws.day_id
+    inner join therapists t on t.id = ws.therapist_id
+    where ws.org_id = $1
+    */});
+  pg.query(sql, [user.org.id], function(err, results){
     cb(err, results && results.rows ? results.rows : null);
   });
 };

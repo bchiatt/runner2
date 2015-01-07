@@ -88,17 +88,17 @@ insert into therapists (id, org_id, disc_id, first, last, is_therapist, photo, p
 insert into therapists (id, org_id, disc_id, first, last, is_therapist, photo, productivity_goal, phone, email) values (2, 1, 2, 'John', 'Doe', false, 'image2.png', 83, '615-555-5678', 'john@aol.com');
 
 -- # populate work_schedules table
-insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 2, true, '8:15 am', '5:15 pm');
-insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 3, false, '7:15 am', '3:15 pm');
-insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (2, 1, 3, true, '9:00 am', '5:30 pm');
-insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 4, true, '8:15 am', '5:15 pm');
+insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 2, true, '08:15', '17:15');
+insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 3, false, '07:15', '15:15');
+insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (2, 1, 3, true, '09:00', '17:30');
+insert into work_schedules (therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 4, true, '08:15', '17:15');
 
 delete from work_schedules;
 
-insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 1, 2, true, '8:15 am', '5:15 pm');
-insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (2, 1, 1, 3, false, '7:15 am', '3:15 pm');
-insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (3, 2, 2, 3, true, '9:00 am', '5:30 pm');
-insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (4, 1, 1, 4, true, '8:15 am', '5:15 pm');
+insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (1, 1, 1, 2, true, '08:15', '17:15');
+insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (2, 1, 1, 3, false, '07:15', '15:15');
+insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (3, 2, 2, 3, true, '09:00', '17:30');
+insert into work_schedules (id, therapist_id, org_id, day_id, is_late_eval, start_time, end_time) values (4, 1, 1, 4, true, '08:15', '17:15');
 
 -- # populate clients table
 insert into clients (org_id, ins_id, first, last, photo, room, admit_date, discharge_date) values (1, 2, 'Sara', 'Claire', 'image.png', '205A', '12/10/14', '1/15/15');

@@ -10,6 +10,8 @@
     .state('login',       {url:'/login',       templateUrl:'/views/users/login.html',      controller:'UsersCtrl'})
     .state('clients',     {url:'/clients',     templateUrl:'/views/clients/list.html',     controller:'ClientsCtrl'})
     .state('therapists',  {url:'/therapists',  templateUrl:'/views/therapists/list.html',  controller:'TherapistsCtrl'})
+    .state('workScheds',  {url:'/workscheds',  templateUrl:'/views/workschedules/list.html', controller:'WorkSchedsCtrl'})
+    .state('workSched',   {url:'/workscheds/{id}', templateUrl:'/views/workschedules/show.html', controller:'WorkSchedsCtrl'})
     .state('treatments',  {url:'/treatments',  templateUrl:'/views/treatments/list.html',  controller:'TreatmentsCtrl'})
     .state('insurances',  {url:'/insurances',  templateUrl:'/views/insurances/list.html',  controller:'InsurancesCtrl'})
     .state('precautions', {url:'/precautions', templateUrl:'/views/precautions/list.html', controller:'PrecautionsCtrl'})

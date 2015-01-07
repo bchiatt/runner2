@@ -1,30 +1,34 @@
 aside.left-off-canvas-menu
   ul.off-canvas-list
-    li: label User: {{rootuser.username}}
-    li: a(ui-sref='home') Home
-    li: a(ui-sref='register') Register
-    li: a(ui-sref='login') Login
-    li: a(href='#') Pricing
-    li: a(href='#') About
-    li: a(href='#') Contact
-    li: label Actions
-    li: a(href='#') Admit
-    li: a(href='#') Calculate
-    li: a(href='#') Schedule
-    li: a(href='#') Confirm
-    li: a(href='#') Discharge
-    li: label Account
-    li.has-submenu: a(href='#') Manage Lists
-      ul.left-submenu
-        li.back: a(href='#') Back
-        li: label Select List
-        li: a(ui-sref='clients') Clients
-        li: a(ui-sref='therapists') Therapists
-        li: a(ui-sref='treatments') Treatments
-        li: a(ui-sref='insurances') Insurances
-        li: a(ui-sref='precautions') Precautions
-        li: a(ui-sref='disciplines') Disciplines
-        li: a(ui-sref='days') Days
-        li: a(ui-sref='users') Users
-    li: a(href='#') Settings
-    li: a(ng-click='logout()') Logout
+    div(ng-hide="rootuser")
+      li: a(ui-sref='home') Home
+      li: a(ui-sref='register') Register
+      li: a(ui-sref='login') Login
+      li: a(href='#') Pricing
+      li: a(href='#') About
+      li: a(href='#') Contact
+    div(ng-show="rootuser")
+      li: label User: {{rootuser.username}}
+      li: a(ui-sref='home') Home
+      li: label Actions
+      li: a(href='#') Admit
+      li: a(href='#') Calculate
+      li: a(href='#') Schedule
+      li: a(href='#') Confirm
+      li: a(href='#') Discharge
+      li: label Account
+      li.has-submenu: a(href='#') Manage Lists
+        ul.left-submenu
+          li.back: a(href='#') Back
+          li: label Select List
+          li: a(ui-sref='clients') Clients
+          li: a(ui-sref='therapists') Therapists
+          li: a(ui-sref='workScheds') Work Schedules
+          li: a(ui-sref='treatments') Treatments
+          li: a(ui-sref='insurances') Insurances
+          li: a(ui-sref='precautions') Precautions
+          li: a(ui-sref='disciplines') Disciplines
+          li: a(ui-sref='days') Days
+          li: a(ui-sref='users') Users
+      li: a(href='#') Settings
+      li: a(ng-click='logout()') Logout
