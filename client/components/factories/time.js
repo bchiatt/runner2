@@ -12,10 +12,10 @@
       h2    = time2[0] * 1,
       m2    = time2[1] * 1;
 
-      return moment().hours(h2).minutes(m2)
+      return moment().hour(h2).minute(m2)
       .subtract(h1, 'hours')
       .subtract(m1, 'minutes')
-      .format('h:mm');
+      .format('H:mm');
     }
 
     function formatAmPm(time){

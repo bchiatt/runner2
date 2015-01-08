@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('runner2')
-  .controller('WorkSchedsCtrl', ['$scope', 'WorkSchedule', 'Day', 'Time', function($scope, WorkSchedule, Day, Time){
+  .controller('WorkSchedCtrl', ['$scope', '$state', 'WorkSchedule', 'Day', 'Time', function($scope, $state, WorkSchedule, Day, Time){
     $scope.modalShown = false;
-    $scope.workSchedules= [];
+    $scope.workSchedules = [];
     $scope.selected = {};
 
     getAll();
@@ -14,7 +14,7 @@
     });
 
     function getAll(){
-      WorkSchedule.all().then(function(response){
+      WorkSchedule.findByTherapist($state.params.id).then(function(response){
         $scope.workSchedules = response.data.workScheds|| [];
       });
     }
@@ -22,15 +22,31 @@
     $scope.save = function(obj){
       var data = {};
 
-      data.id = obj.id;
+      if(obj.id){data.id = obj.id;}
       data.day_id = obj.day_id;
-      data.therapist_id = obj.therapist_id;
+      data.therapist_id = $state.params.id;
       data.start_time = obj.start_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
       data.end_time = obj.end_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
       data.is_late_eval = obj.is_late_eval;
 
-      WorkSchedule.update(data).then(function(response){
-        getAll();
+      if(data.id){
+        WorkSchedule.update(data).then(function(response){
+          getAll();
+        });
+      }else{
+        WorkSchedule.create(data).then(function(response){
+          getAll();
+        }, function(r){
+          console.log(r);
+        });
+      }
+    };
+
+    $scope.nuke = function(id){
+      WorkSchedule.nuke(id).then(function(){
+         getAll();
+      }, function(r){
+        console.log(r);
       });
     };
 
@@ -43,8 +59,9 @@
     };
 
     $scope.toggleModal = function(ws){
+      $scope.selected = ws;
+
       if(ws.id){
-        $scope.selected = ws;
 
         var start = $scope.selected.start_time.split(':'),
             end   = $scope.selected.end_time.split(':');

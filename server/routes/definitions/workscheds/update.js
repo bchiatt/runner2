@@ -17,10 +17,7 @@ module.exports = {
     }
   },
   handler: function(request, reply){
-    console.log(request.payload);
     WorkSchedule.update(request.auth.credentials, request.payload, function(err, results){
-      console.log('err', err);
-      console.log('results', results);
       reply().code(err ? 400 : 200);
     });
   }

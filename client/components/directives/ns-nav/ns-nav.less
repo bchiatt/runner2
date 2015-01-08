@@ -1,11 +1,27 @@
+// material pallette
+@darkPrimaryColor:   #455A64;
+@primaryColor:       #607D8B;
+@lightPrimaryColor:  #CFD8DC;
+@textPrimaryColor:   #FFFFFF;
+@accentColor:        #FFC107;
+@primaryTextColor:   #212121;
+@secondaryTextColor: #727272;
+@dividerColor:       #B6B6B6;
+
 div[ns-nav]{
+  /*
+  .tab-bar{
+    background: @primaryColor;
+    color: @textPrimaryColor;
+  }
+  */
+
   a{
-    color: white;
+    color: @textPrimaryColor;
     margin-right: 50px;
-    
+
     &:nth-child(3){
       margin-right: 20px;
     }
   }
 }
-

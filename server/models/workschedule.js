@@ -18,7 +18,7 @@ WorkSchedule.findById = function(user, id, cb){
   });
 };
 
-WorkSchedule.all = function(user, cb){
+WorkSchedule.all = function(user, query, cb){
   var sql = multiline.stripIndent(function(){/*
     select
       ws.id,
@@ -36,9 +36,10 @@ WorkSchedule.all = function(user, cb){
     from work_schedules ws
     inner join days_in_week dw on dw.id = ws.day_id
     inner join therapists t on t.id = ws.therapist_id
-    where ws.org_id = $1
+    where ws.org_id = $1 and cast(ws.therapist_id as text) like $2
+    order by dw.num asc
     */});
-  pg.query(sql, [user.org.id], function(err, results){
+  pg.query(sql, [user.org.id, query.therapistId || '%'], function(err, results){
     cb(err, results && results.rows ? results.rows : null);
   });
 };
@@ -67,6 +68,7 @@ WorkSchedule.update = function(user, obj, cb){
 };
 
 WorkSchedule.nuke = function(user, schedId, cb){
+  console.log(user.org.id, schedId);
   pg.query('select work_schedule_nuke($1, $2)', [user.org.id, schedId],
       function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);

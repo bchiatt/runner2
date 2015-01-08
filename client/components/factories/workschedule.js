@@ -16,6 +16,14 @@
       return $http.put('/workscheds', obj);
     }
 
-    return {all:all, create:create, update:update};
+    function findByTherapist(therapistId){
+      return $http.get('/workscheds?therapistId=' + therapistId);
+    }
+
+    function nuke(id){
+      return $http.delete('/workscheds/' + id);
+    }
+
+    return {all:all, create:create, update:update, findByTherapist:findByTherapist, nuke:nuke};
   }]);
 })();

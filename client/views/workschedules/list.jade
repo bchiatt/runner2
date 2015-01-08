@@ -1,5 +1,3 @@
-div(bc-modal, show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')
-  
 h4 WORK SCHEDULES
 
 table
@@ -14,12 +12,14 @@ table
       th Late Evals?
       th Edit
       tbody
-        tr(ng-repeat='ws in workSchedules| orderBy: \'day_num\'')
+        tr(ng-repeat='ws in workSchedules | orderBy: \'day_num\'')
           td {{::ws.day_abbr}}
-          td {{ws.therapist_first}}
+          td: a(ui-sref="workSched({id:ws.id})") {{ws.therapist_first}}
           td {{ws.therapist_last}}
           td {{::formatAmPm(ws.start_time)}}
           td {{::formatAmPm(ws.end_time)}}
           td {{::timeDiff(ws.start_time, ws.end_time)}}
           td {{::ws.is_late_eval ? 'YES' : '---'}}
           td: a(ng-click='toggleModal(ws)') edit
+
+div(bc-modal, show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')

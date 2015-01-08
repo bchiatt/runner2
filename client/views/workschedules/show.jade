@@ -1,1 +1,24 @@
-h4 WORK SCHEDULES SHOW
+h4(ng-cloak) {{workSchedules[0].therapist_first}} {{workSchedules[0].therapist_last}}'s Work Schedule  
+table
+  thead
+    tr
+      th Day
+      th Start
+      th End
+      th Hours
+      th Late Evals?
+      th Edit
+      th Remove
+      tbody
+        tr(ng-repeat='ws in workSchedules | orderBy: \'day_num\'')
+          td {{::ws.day_abbr}}
+          td {{::formatAmPm(ws.start_time)}}
+          td {{::formatAmPm(ws.end_time)}}
+          td {{::timeDiff(ws.start_time, ws.end_time)}}
+          td {{::ws.is_late_eval ? 'YES' : '---'}}
+          td: a(ng-click='toggleModal(ws)') edit
+          td: a(ng-click='nuke(ws.id)') delete
+          
+button.button(ng-click='toggleModal({})') Create
+            
+div(bc-modal, show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')
