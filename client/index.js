@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('runner2', ['ui.router', 'ngAnimate','angularFileUpload'])
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+  .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
     .state('home',        {url:'/',            templateUrl:'/views/home/home.html',        controller:'HomeCtrl'})
@@ -18,6 +18,8 @@
     .state('disciplines', {url:'/disciplines', templateUrl:'/views/disciplines/list.html', controller:'DisciplinesCtrl'})
     .state('days',        {url:'/days',        templateUrl:'/views/days/list.html',        controller:'DaysCtrl'})
     .state('users',       {url:'/users',       templateUrl:'/views/users/list.html',       controller:'UsersCtrl'});
+
+    $httpProvider.interceptors.push('HttpInterceptor');
   }])
   .run(['$rootScope', '$http', function($rootScope, $http){
     $http.get('/status').then(function(response){
