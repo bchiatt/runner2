@@ -20,12 +20,10 @@
     }
 
     $scope.save = function(data){
-      delete data.disciplines;
-      delete data.disc_abbr;
-      delete data.disc_name;
-      delete data.photo;
+      data = cleanData(data);
+      $scope.selected = {};
 
-      if($scope.selected.id){
+      if(data.id){
         Therapist.update(data).then(function(response){
           getAll();
         });
@@ -35,6 +33,15 @@
         });
       }
     };
+
+    function cleanData(data){
+      delete data.disciplines;
+      delete data.disc_abbr;
+      delete data.disc_name;
+      delete data.photo;
+
+      return data;
+    }
 
     $scope.toggleModal = function(t){
       $scope.selected = t;

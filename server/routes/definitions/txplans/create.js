@@ -20,11 +20,8 @@ module.exports = {
     }
   },
   handler: function(request, reply){
-    console.log('payload', request.payload);
     TxPlan.add(request.auth.credentials, request.payload, function(err, results){
-      console.log('err', err);
-      console.log('results', results);
-      reply().code(err ? 400 : 200);
+      reply(results).code(err ? 400 : 200);
     });
   }
 };

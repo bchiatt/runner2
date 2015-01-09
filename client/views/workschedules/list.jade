@@ -9,15 +9,13 @@ table
       th End
       th Hours
       th Late Evals?
-      th Edit
       tbody
-        tr(ng-repeat='ws in workSchedules | orderBy: \'day_num\'')
+        tr(ng-repeat='ws in workSchedules | orderBy: \'day_num\''): a(href='')
           td {{::ws.day_abbr}}
           td: a(ui-sref="workSched({id:ws.therapist_id})") {{ws.therapist_last}}, {{ws.therapist_first}}
           td {{::formatAmPm(ws.start_time)}}
           td {{::formatAmPm(ws.end_time)}}
           td {{::timeDiff(ws.start_time, ws.end_time)}}
           td {{::ws.is_late_eval ? 'YES' : '---'}}
-          td: a(ng-click='toggleModal(ws)') edit
 
-div(bc-modal, show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')
+div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')

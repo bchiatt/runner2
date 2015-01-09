@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('runner2')
-  .controller('TxPlanCtrl', ['$scope', '$state', 'TreatmentPlan', 'Time',  'Day', 'Therapist', 'Discipline', function($scope, $state, TreatmentPlan, Time, Day, Therapist, Discipline){
+  .controller('TxPlanCtrl', ['$scope', '$state', 'TreatmentPlan', 'Time',  'Day', 'Therapist', 'Discipline', 'Client', function($scope, $state, TreatmentPlan, Time, Day, Therapist, Discipline, Client){
     var  days, disciplines, therapists;
     $scope.modalShown = false;
     $scope.txPlans = [];
@@ -10,14 +10,17 @@
 
     getAll();
 
+    Client.findById($state.params.id).then(function(response){
+      $scope.client = {
+        client_id: response.data.client.id,
+        client_first: response.data.client.first,
+        client_last: response.data.client.last
+      };
+    });
+
     function getAll(){
       TreatmentPlan.findByClient($state.params.id).then(function(response){
         $scope.txPlans = response.data.txPlans || [];
-        $scope.client = {
-          client_id: $scope.txPlans[0].client_id,
-          client_first: $scope.txPlans[0].client_first,
-          client_last: $scope.txPlans[0].client_last
-        };
       });
     }
 
@@ -44,8 +47,6 @@
       }else{
         TreatmentPlan.create(data).then(function(response){
           getAll();
-        }, function(e){
-          console.log(e);
         });
       }
     };

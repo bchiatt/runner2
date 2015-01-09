@@ -19,20 +19,20 @@
       });
     }
 
-    $scope.save = function(obj){
-      var data = {};
-
-      data.id = obj.id;
-      data.day_id = obj.day_id;
-      data.therapist_id = obj.therapist_id;
-      data.start_time = obj.start_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
-      data.end_time = obj.end_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
-      data.is_late_eval = obj.is_late_eval;
+    $scope.save = function(data){
+      $scope.selected = {};
+      data = cleanData(data);
 
       WorkSchedule.update(data).then(function(response){
         getAll();
       });
     };
+
+    function cleanData(data){
+      data.start_time = data.start_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
+      data.end_time = data.end_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
+      return data;
+    }
 
     $scope.timeDiff = function(start, end){
       return Time.timeDiff(start, end);
