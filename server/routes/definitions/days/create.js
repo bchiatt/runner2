@@ -16,8 +16,7 @@ module.exports = {
   },
   handler: function(request, reply){
     Day.add(request.auth.credentials, request.payload, function(err, results){
-      console.log('err', err);
-      reply().code(err ? 400 : 200);
+      reply(results).code(err ? 400 : 200);
     });
   }
 };

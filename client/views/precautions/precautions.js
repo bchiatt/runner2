@@ -6,17 +6,19 @@
     $scope.modalShown = false;
     $scope.precautions = [];
     $scope.selected = {};
-    
+
     getAll();
-    
+
     function getAll(){
       Precaution.all().then(function(response){
         $scope.precautions = response.data.precautions || [];
       });
     }
-   
+
     $scope.save = function(data){
-      if($scope.selected.id){
+      $scope.selected = {};
+      
+      if(data.id){
         Precaution.update(data).then(function(response){
           getAll();
         });
@@ -26,10 +28,10 @@
         });
       }
     };
-    
+
     $scope.toggleModal = function(p){
       $scope.selected = p;
-      $scope.modalShown = !$scope.modalShown; 
+      $scope.modalShown = !$scope.modalShown;
     };
   }]);
 })();

@@ -21,9 +21,9 @@ table
       td {{dateMoDaYr(c.discharge_date)}}
       td {{c.email}}
       td {{c.phone}}
-      td: a(sref='') view 
+      td: a(ui-sref="txPlan({id:c.id})") view 
       td: a(ng-click='toggleModal(c)') edit
           
 button.button(ng-click='toggleModal({})') Create
 
-div(bc-modal, show='modalShown', obj='{{selected}}', folder='clients', file='edit', save='save(data)')
+div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='clients', file='edit', save='save(data)')

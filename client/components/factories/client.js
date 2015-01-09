@@ -16,6 +16,10 @@
       return $http.put('/clients', obj);
     }
 
-    return {all:all, create:create, update:update};
+    function findById(id){
+      return $http.get('/clients/' + id);
+    }
+
+    return {all:all, create:create, update:update, findById:findById};
   }]);
 })();

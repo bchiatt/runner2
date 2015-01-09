@@ -17,7 +17,7 @@ module.exports = {
   },
   handler: function(request, reply){
     WorkSchedule.add(request.auth.credentials, request.payload, function(err, results){
-      reply().code(err ? 400 : 200);
+      reply(results).code(err ? 400 : 200);
     });
   }
 };

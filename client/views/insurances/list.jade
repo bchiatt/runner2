@@ -9,9 +9,9 @@ table
   tbody
     tr(ng-repeat='i in insurances | orderBy: \'name\'')
       td {{i.name}}
-      td {{i.is_rug}}
+      td {{i.is_rug ? 'YES' : 'NO'}}
       td: a(ng-click='toggleModal(i)') edit
 
 button.button(ng-click='toggleModal({})') Create
 
-div(bc-modal, show='modalShown', obj='{{selected}}', folder='insurances', file='edit', save='save(data)')
+div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='insurances', file='edit', save='save(data)')

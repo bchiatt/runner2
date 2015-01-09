@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('runner2')
-  .controller('WorkSchedCtrl', ['$scope', '$state', 'WorkSchedule', 'Day', 'Time', function($scope, $state, WorkSchedule, Day, Time){
+  .controller('WorkSchedCtrl', ['$scope', '$state', 'WorkSchedule', 'Day', 'Time', 'Therapist', function($scope, $state, WorkSchedule, Day, Time, Therapist){
     $scope.modalShown = false;
     $scope.workSchedules = [];
     $scope.selected = {};
@@ -13,6 +13,14 @@
       $scope.days = response.data.days;
     });
 
+    Therapist.findById($state.params.id).then(function(response){
+      $scope.therapist = {
+        therapist_id: response.data.therapist.id,
+        therapist_first: response.data.therapist.first,
+        therapist_last: response.data.therapist.last
+      };
+    });
+
     function getAll(){
       WorkSchedule.findByTherapist($state.params.id).then(function(response){
         $scope.workSchedules = response.data.workScheds|| [];
@@ -21,6 +29,7 @@
 
     $scope.save = function(obj){
       var data = {};
+      $scope.selected = {};
 
       if(obj.id){data.id = obj.id;}
       data.day_id = obj.day_id;
@@ -45,8 +54,6 @@
     $scope.nuke = function(id){
       WorkSchedule.nuke(id).then(function(){
          getAll();
-      }, function(r){
-        console.log(r);
       });
     };
 

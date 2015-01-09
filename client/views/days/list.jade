@@ -18,4 +18,4 @@ table
 
 button.button(ng-show='days.length < 7', ng-click='toggleModal({})') Create
 
-div(bc-modal, show='modalShown', obj='{{selected}}', folder='days', file='edit', save='save(data)')
+div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='days', file='edit', save='save(data)')

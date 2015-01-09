@@ -1,4 +1,4 @@
-h4(ng-cloak) {{workSchedules[0].therapist_first}} {{workSchedules[0].therapist_last}}'s Work Schedule  
+h4(ng-cloak) {{therapist.therapist_first}} {{therapist.therapist_last}}'s Work Schedule  
 table
   thead
     tr
@@ -19,6 +19,6 @@ table
           td: a(ng-click='toggleModal(ws)') edit
           td: a(ng-click='nuke(ws.id)') delete
           
-button.button(ng-click='toggleModal({})') Create
+button.button(ng-click='toggleModal(therapist)') Create
             
-div(bc-modal, show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')
+div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')

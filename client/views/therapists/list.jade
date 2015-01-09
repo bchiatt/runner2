@@ -13,15 +13,15 @@ table
       th Edit
   tbody
     tr(ng-repeat='t in therapists | orderBy: \'last\'')
-      td: a(ui-sref="workSched({id:t.id})")  {{t.last}}, {{t.first}}
+      td {{t.last}}, {{t.first}}
       td {{t.disc_abbr}}
       td {{t.is_therapist ? 'Therapist' : 'Assistant'}}
       td {{t.productivity_goal}}%
       td {{t.email}}
       td {{t.phone}}
-      td: a(sref='') schedule
+      td: a(ui-sref="workSched({id:t.id})") schedule
       td: a(ng-click='toggleModal(t)') edit
           
 button.button(ng-click='toggleModal({})') Create
 
-div(bc-modal, show='modalShown', obj='{{selected}}', folder='therapists', file='edit', save='save(data)')
+div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='therapists', file='edit', save='save(data)')

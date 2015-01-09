@@ -15,7 +15,9 @@
     }
 
     $scope.save = function(data){
-      if($scope.selected.id){
+      $scope.selected = {};
+
+      if(data.id){
         Day.update(data).then(function(response){
           getAll();
         });

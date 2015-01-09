@@ -16,6 +16,10 @@
       return $http.put('/therapists', obj);
     }
 
-    return {all:all, create:create, update:update};
+    function findById(id){
+      return $http.get('/therapists/' + id);
+    }
+
+    return {all:all, create:create, update:update, findById:findById};
   }]);
 })();

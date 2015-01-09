@@ -16,7 +16,9 @@
     }
 
     $scope.save = function(data){
-      if($scope.selected.id){
+      $scope.selected = {};
+
+      if(data.id){
         Discipline.update(data).then(function(response){
           getAll();
         });
