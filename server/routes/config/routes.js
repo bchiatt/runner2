@@ -21,6 +21,8 @@ module.exports = [
   {method: 'post',   path: '/therapists',      config: require('../definitions/therapists/create')},
   {method: 'put',    path: '/therapists',      config: require('../definitions/therapists/update')},
   {method: 'get',    path: '/clients',         config: require('../definitions/clients/all')},
+  {method: 'post',   path: '/clients',         config: require('../definitions/clients/create')},
+  {method: 'put',    path: '/clients',         config: require('../definitions/clients/update')},
   {method: 'get',    path: '/txplans',         config: require('../definitions/txplans/all')},
   {method: 'get',    path: '/treatments',      config: require('../definitions/treatments/all')},
   {method: 'get',    path: '/workscheds',      config: require('../definitions/workscheds/all')},

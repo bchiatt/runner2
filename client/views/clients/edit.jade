@@ -1,0 +1,45 @@
+.ng-modal(ng-cloak, ng-show='show')
+  .reveal-modal(ng-show='show')
+    a.close-reveal-modal(ng-click='hideModal()') &#215;
+    
+    h1 Client
+    form(novalidate, name='clientForm')
+      .row
+        .small-4.columns
+          label(for='first') First
+          input#first(type='text', ng-model='::obj.first', autofocus, required)
+        .small-4.columns
+          label(for='last') Last
+          input#last(type='text', ng-model='::obj.last', required)
+        .small-4.columns
+      .row
+        .small-4.columns
+          label(for='insurance') Insurance
+          select.form-control#insurance(ng-model='::obj.ins_id', ng-options='i.id as i.name for i in obj.insurances| orderBy:\'name\'')
+            option(value='') Select Insurance
+        .small-4.columns
+          label(for='room') Room
+          input#room(type='text', ng-model='::obj.room')
+        .small-4.columns
+      .row
+        .small-4.columns
+          label(for='admit') Admit Date
+          input#admit(type='date', ng-model='::obj.admit_date')
+        .small-4.columns
+          label(for='discharge') Discharge Date
+          input#discharge(type='date', ng-model='::obj.discharge_date')
+        .small-4.columns
+      .row
+        .small-4.columns
+          label(for='email') Email Address
+          input#email(type='text', ng-model='::obj.email')
+        .small-4.columns
+          label(for='phone') Phone
+          input#phone(type='text', ng-model='::obj.phone')
+        .small-4.columns
+      .row
+        .small-3.columns
+        .small-6.columns
+          button.button(ng-show='clientForm.$valid', ng-click='execute({data: obj})') Save
+        .small-3.columns
+  .reveal-modal-bg(ng-click='hideModal()')

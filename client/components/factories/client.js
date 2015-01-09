@@ -8,6 +8,14 @@
       return $http.get('/clients');
     }
 
-    return {all:all};
+    function create(obj){
+      return $http.post('/clients', obj);
+    }
+
+    function update(obj){
+      return $http.put('/clients', obj);
+    }
+
+    return {all:all, create:create, update:update};
   }]);
 })();

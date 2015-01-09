@@ -4,8 +4,7 @@ table
   thead
     tr
       th Day
-      th First
-      th Last
+      th Name
       th Start
       th End
       th Hours
@@ -14,8 +13,7 @@ table
       tbody
         tr(ng-repeat='ws in workSchedules | orderBy: \'day_num\'')
           td {{::ws.day_abbr}}
-          td: a(ui-sref="workSched({id:ws.id})") {{ws.therapist_first}}
-          td {{ws.therapist_last}}
+          td: a(ui-sref="workSched({id:ws.therapist_id})") {{ws.therapist_last}}, {{ws.therapist_first}}
           td {{::formatAmPm(ws.start_time)}}
           td {{::formatAmPm(ws.end_time)}}
           td {{::timeDiff(ws.start_time, ws.end_time)}}

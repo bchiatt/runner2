@@ -1,1 +1,29 @@
 h4 CLIENTS
+
+table
+  thead
+    tr
+      th Room
+      th Name
+      th Insurance
+      th Admit Date
+      th DC Date
+      th Email
+      th Phone
+      th Tx Plan
+      th Edit
+  tbody
+    tr(ng-repeat='c in clients | orderBy: \'last\'')
+      td {{c.room ? c.room : 'inactive'}}
+      td {{c.last}}, {{c.first}}
+      td {{c.ins_name}}
+      td {{dateMoDaYr(c.admit_date)}}
+      td {{dateMoDaYr(c.discharge_date)}}
+      td {{c.email}}
+      td {{c.phone}}
+      td: a(sref='') view 
+      td: a(ng-click='toggleModal(c)') edit
+          
+button.button(ng-click='toggleModal({})') Create
+
+div(bc-modal, show='modalShown', obj='{{selected}}', folder='clients', file='edit', save='save(data)')

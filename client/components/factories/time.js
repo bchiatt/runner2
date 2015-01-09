@@ -28,6 +28,14 @@
       return t[0] + ':' + t[1] + ' ' + suff;
     }
 
-    return {timeDiff:timeDiff, formatAmPm:formatAmPm};
+    function isoDate(pgDate){
+       return pgDate.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/)[0];
+    }
+
+    function postgresDate(isoDate){
+      return isoDate.toString().match(/[a-zA-Z]{3} [a-zA-Z]{3} [0-9]{2} [0-9]{4}/)[0];
+    }
+
+    return {timeDiff:timeDiff, formatAmPm:formatAmPm, isoDate:isoDate, postgresDate:postgresDate};
   }]);
 })();

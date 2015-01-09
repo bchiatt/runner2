@@ -13,8 +13,9 @@
                       };
 
                       scope.execute = function(){
-                        scope.save({data: scope.obj});
                         scope.hideModal();
+                        scope.save({data: scope.obj});
+                        scope.obj = {};
                       };
 
                       scope.$watch('obj', function(){
@@ -24,6 +25,12 @@
                         }
                         if(scope.obj.end_time){
                           scope.obj.end_time= new Date(scope.obj.end_time);
+                        }
+                        if(scope.obj.admit_date){
+                          scope.obj.admit_date = new Date(scope.obj.admit_date);
+                        }
+                        if(scope.obj.discharge_date){
+                          scope.obj.discharge_date= new Date(scope.obj.discharge_date);
                         }
                       });
                     };
