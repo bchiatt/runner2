@@ -23,7 +23,7 @@
       data = cleanData(data);
       $scope.selected = {};
 
-      if($scope.selected.id){
+      if(data.id){
         Client.update(data).then(function(response){
           getAll();
         });

@@ -1,6 +1,6 @@
 'use strict';
 
-var Joi        = require('joi'),
+var Joi    = require('joi'),
     Client = require('../../../models/client');
 
 module.exports = {
@@ -19,10 +19,7 @@ module.exports = {
     }
   },
   handler: function(request, reply){
-    console.log('payload', request.payload);
     Client.add(request.auth.credentials, request.payload, function(err, results){
-      console.log('err', err);
-      console.log('results', results);
       reply().code(err ? 400 : 200);
     });
   }

@@ -1,0 +1,30 @@
+'use strict';
+
+var Joi    = require('joi'),
+    TxPlan = require('../../../models/treatmentplan');
+
+module.exports = {
+  description: 'Create A Treatment Plan',
+  tags:['treatment plans'],
+  validate: {
+    payload: {
+      disc_id: Joi.number().required(),
+      client_id: Joi.number().required(),
+      eval_therapist_id: Joi.number().required(),
+      weekly_day_id: Joi.number().required(),
+      frequency_low: Joi.number().required(),
+      frequency_high: Joi.number().required(),
+      eval_date: Joi.string().required(),
+      recert_date: Joi.string(),
+      discharge_date: Joi.string()
+    }
+  },
+  handler: function(request, reply){
+    console.log('payload', request.payload);
+    TxPlan.add(request.auth.credentials, request.payload, function(err, results){
+      console.log('err', err);
+      console.log('results', results);
+      reply().code(err ? 400 : 200);
+    });
+  }
+};

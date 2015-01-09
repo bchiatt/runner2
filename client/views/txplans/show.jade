@@ -1,0 +1,27 @@
+h4(ng-cloak) TREATMENT PLAN(S) FOR {{client.client_first}} {{client.client_last}}
+
+table
+  thead
+    tr
+      th Discipline
+      th Eval Therapist
+      th Eval Date
+      th Weekly Day
+      th Recert Date
+      th Discharge Date
+      th Frequency
+      th Edit
+  tbody
+    tr(ng-repeat='t in txPlans| orderBy: \'client_last\'')
+      td {{t.disc_abbr}}
+      td {{t.eval_therapist_last}}, {{t.eval_therapist_first}}
+      td {{dateMoDaYr(t.eval_date)}}
+      td {{t.weekly_abbr}}
+      td {{dateMoDaYr(t.recert_date)}}
+      td {{dateMoDaYr(t.discharge_date)}}
+      td {{t.frequency_low}}-{{t.frequency_high}}x /wk
+      td: a(ng-click='toggleModal(t)') edit
+          
+button.button(ng-click='toggleModal(client)') Create
+
+div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='txplans', file='edit', save='save(data)')

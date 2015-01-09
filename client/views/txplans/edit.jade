@@ -1,0 +1,52 @@
+.ng-modal(ng-show='show')
+  .reveal-modal(ng-show='show')
+    a.close-reveal-modal(ng-click='hideModal()') &#215;
+    
+    h1 Treatment Plan for {{obj.client_first}} {{obj.client_last}}
+    form(novalidate, name='txPlanForm')
+      .row
+        .small-4.columns
+          label(for='first') First
+          input#first(type='text', ng-model='obj.client_first', disabled)
+        .small-4.columns
+          label(for='last') Last
+          input#last(type='text', ng-model='obj.client_last', disabled)
+        .small-4.columns
+      .row
+        .small-4.columns
+          label(for='discipline') Discipline
+          select.form-control#discipline(ng-model='obj.disc_id', ng-options='d.id as d.name for d in obj.disciplines | orderBy:\'name\'', required)
+            option(value='') Select Discipline
+        .small-4.columns
+          label(for='therapist') Evaluating Therapist
+          select.form-control#therapist(ng-model='obj.eval_therapist_id', ng-options='t.id as fullName(t.first, t.last) for t in obj.therapists | filter:{disc_id: obj.disc_id}', required)
+            option(value='') Select Therapist
+        .small-4.columns
+      .row
+        .small-4.columns
+          label(for='eval') Evaluation Date
+          input#eval(type='date', ng-model='obj.eval_date', required)
+        .small-4.columns
+          label(for='recert') Recert Date
+          input#recert(type='date', ng-model='obj.recert_date')
+        .small-4.columns
+          label(for='discharge') Discharge Date
+          input#discharge(type='date', ng-model='obj.discharge_date')
+      .row
+        .small-4.columns
+          label(for='weekly')
+            span.has-tip(data-tooltip, aria-haspopup='true', title='Generally, this is the business day before the evaluation date.') Weekly Day
+          select.form-control#weekly(ng-model='obj.weekly_day_id', ng-options='d.id as d.full_name for d in obj.days | orderBy:\'num\'', required)
+            option(value='') Select Day
+        .small-4.columns
+          label(for='low') 
+            span.has-tip(data-tooltip, aria-haspopup='true', title='Must be between 0 and 7') Min Visits a Week
+          input#low(type='number', ng-model='obj.frequency_low', min='0', max='7', required)
+        .small-4.columns
+          label(for='high')
+            span.has-tip(data-tooltip, aria-haspopup='true', title='Must be between 0 and 7') Max Visits a Week
+          input#high(type='number', ng-model='obj.frequency_high', min='0', max='7', required)
+      .row
+        .small-12.columns
+          button.button(ng-show='txPlanForm.$valid', ng-click='execute({data: obj})') Save
+  .reveal-modal-bg(ng-click='hideModal()')
