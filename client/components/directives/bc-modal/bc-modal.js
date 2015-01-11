@@ -45,6 +45,9 @@
                         if(scope.obj.recert_date){
                           scope.obj.recert_date= new Date(scope.obj.recert_date);
                         }
+                        if(scope.obj.tx_date){
+                          scope.obj.tx_date = new Date(scope.obj.tx_date);
+                        }
                       });
 
                       scope.ready = true;

@@ -23,10 +23,10 @@ describe('Therapist', function(){
   describe('constructor', function(){
     it('should create an therapist object', function(done){
       var obj = {
-                  discId: 2,
+                  disc_id: 2,
                   first: 'Sally',
                   last: 'Thomas',
-                  isTherapist: false
+                  is_therapist: false
                  },
           therapist = new Therapist(obj);
 
@@ -39,10 +39,10 @@ describe('Therapist', function(){
   describe('.add', function(){
     it('should add a new therapist', function(done){
       var obj = {
-                  discId: 2,
+                  disc_id: 2,
                   first: 'Sally',
                   last: 'Thomas',
-                  isTherapist: false
+                  is_therapist: false
                 };
       Therapist.add({org: {id: 1}}, obj, function(err, results){
         expect(results.therapist_add).to.be.ok;

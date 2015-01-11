@@ -9,7 +9,17 @@ aside.left-off-canvas-menu
       li: a(href='#') Contact
     div(ng-show="rootuser")
       li: label User: {{rootuser.username}}
-      li: a(ui-sref='home') Home
+      //- li: a(ui-sref='home') Home
+      li: label Lists
+      li: a(ui-sref='days') Days
+      li: a(ui-sref='insurances') Insurances
+      li: a(ui-sref='precautions') Precautions
+      li: a(ui-sref='disciplines') Disciplines
+      li: a(ui-sref='therapists') Therapists
+      li: a(ui-sref='workScheds') Work Schedules
+      li: a(ui-sref='clients') Clients
+      li: a(ui-sref='txPlans') Treatment Plans
+      li: a(ui-sref='treatments') Treatments
       li: label Actions
       li: a(href='#') Admit
       li: a(href='#') Calculate
@@ -17,10 +27,10 @@ aside.left-off-canvas-menu
       li: a(href='#') Confirm
       li: a(href='#') Discharge
       li: label Account
-      li.has-submenu: a(href='#') Manage Lists
+      //- li.has-submenu: a(href='#') Manage Lists
         ul.left-submenu
           li.back: a(href='#') Back
-          li: label Select List
+          //- li: label Select List
           li: a(ui-sref='clients') Clients
           li: a(ui-sref='txPlans') Treatment Plans
           li: a(ui-sref='therapists') Therapists
@@ -31,5 +41,5 @@ aside.left-off-canvas-menu
           li: a(ui-sref='disciplines') Disciplines
           li: a(ui-sref='days') Days
           //- li: a(ui-sref='users') Users
-      li: a(href='#') Settings
+      //- li: a(href='#') Settings
       li: a(ng-click='logout()') Logout

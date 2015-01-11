@@ -22,7 +22,7 @@ describe('Day', function(){
 
   describe('constructor', function(){
     it('should create an day object', function(done){
-      var day = new Day({name: 'Xyz123', abbr: 'Xyz', letter: 'Z'});
+      var day = new Day({full_name: 'Xyz123', abbr: 'Xyz', letter: 'Z'});
 
       expect(day).to.be.instanceof(Day);
       expect(day.abbr).to.equal('Xyz');
@@ -32,7 +32,7 @@ describe('Day', function(){
 
   describe('.add', function(){
     it('should add a new day', function(done){
-      Day.add({org: {id: 1}}, {name: 'Xyz123', abbr: 'Xyz', letter: 'Z'}, function(err, results){
+      Day.add({org: {id: 1}}, {num: 2, full_name: 'Xyz123', abbr: 'Xyz', letter: 'Z'}, function(err, results){
         expect(results.day_add).to.be.ok;
         expect(err).to.be.null;
         done();

@@ -8,6 +8,18 @@
       return $http.get('/treatments');
     }
 
-    return {all:all};
+    function create(tx){
+      return $http.post('/treatments', tx);
+    }
+
+    function update(tx){
+      return $http.put('/treatments', tx);
+    }
+
+    function nuke(id){
+      return $http.delete('/treatments/' + id);
+    }
+
+    return {all:all, create:create, update:update, nuke:nuke};
   }]);
 })();

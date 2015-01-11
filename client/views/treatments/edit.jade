@@ -1,0 +1,55 @@
+.ng-modal(ng-show='show')
+  .reveal-modal(ng-show='show')
+    a.close-reveal-modal(ng-click='hideModal()') &#215;
+    
+    h1 Treatment
+    form(novalidate, name='treatmentForm')
+      .row
+        .small-4.columns
+          label(for='client') Client
+          select.form-control#client(ng-model='obj.client_id', ng-options='c.id as fullName(c.first, c.last) for c in obj.clients | orderBy:\'last\'', required)
+            option(value='') Select Client
+        .small-4.columns
+          label(for='discipline') Discipline
+          select.form-control#discipline(ng-model='obj.disc_id', ng-options='d.id as d.name for d in obj.disciplines | orderBy:\'name\'', required)
+            option(value='') Select Discipline
+        .small-4.columns
+          label(for='therapist') Evaluating Therapist
+          select.form-control#therapist(ng-model='obj.therapist_id', ng-options='t.id as fullName(t.first, t.last) for t in obj.therapists | filter:{disc_id: obj.disc_id}', required)
+            option(value='') Select Therapist
+      .row
+        .small-4.columns
+          label(for='eval') Treatment Date
+          input#eval(type='date', ng-model='obj.tx_date', required)
+        .small-4.columns
+          label(for='exp') Projected Mins
+          input#exp(type='number', ng-model='obj.mins_expected', required)
+        .small-4.columns
+          label(for='act') Actual Mins
+          input#act(type='number', ng-model='obj.mins_actual')
+      .row
+        .small-4.columns
+          label(for='count') Day Count
+          input#count(type='number', ng-model='obj.day_count', required)
+        .small-4.columns
+          label(for='insurances') Insurances
+          select.form-control#insurances(ng-model='obj.ins_id', ng-options='i.id as i.name for i in obj.insurances | orderBy:\'name\'', required)
+            option(value='') Select Insurance
+        .small-2.columns
+          label
+            span.has-tip(data-tooltip, aria-haspopup='true', title='Colored means yes.') Is Note Done?
+          .switch
+            input#isNote(type='checkbox', ng-model='obj.is_note_done')
+            label(for='isNote')
+        .small-2.columns
+          label
+            span.has-tip(data-tooltip, aria-haspopup='true', title='Colored means yes.') Is Archived?
+          .switch
+            input#isArchived(type='checkbox', ng-model='obj.is_archived')
+            label(for='isArchived')
+      .row
+        input(type='hidden', ng-model='obj.ins_id', value='obj.client.ins_id')
+      .row
+        .small-12.columns
+          button.button(ng-show='treatmentForm.$valid', ng-click='execute({data: obj})') Save
+  .reveal-modal-bg(ng-click='hideModal()')

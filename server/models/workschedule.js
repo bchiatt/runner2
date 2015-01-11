@@ -68,7 +68,6 @@ WorkSchedule.update = function(user, obj, cb){
 };
 
 WorkSchedule.nuke = function(user, schedId, cb){
-  console.log(user.org.id, schedId);
   pg.query('select work_schedule_nuke($1, $2)', [user.org.id, schedId],
       function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);

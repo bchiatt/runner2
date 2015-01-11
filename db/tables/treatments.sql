@@ -5,11 +5,11 @@ create table treatments(
   org_id integer not null references orgs(id),
   disc_id integer not null references disciplines(id),
   ins_id integer not null references insurances(id),
-  plan_id integer not null references treatment_plans(id),
+  plan_id integer references treatment_plans(id),
   mins_expected smallint not null,
-  mins_actual smallint,
+  mins_actual smallint default 0,
   tx_date date not null,
-  day_count smallint not null,
+  day_count smallint,
   is_note_done boolean default false,
   is_archived boolean default false
 );
