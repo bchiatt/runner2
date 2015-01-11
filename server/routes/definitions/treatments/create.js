@@ -22,8 +22,6 @@ module.exports = {
   },
   handler: function(request, reply){
     Treatment.add(request.auth.credentials, request.payload, function(err, results){
-      console.log('err', err);
-      console.log('results', results);
       reply(results).code(err ? 400 : 200);
     });
   }

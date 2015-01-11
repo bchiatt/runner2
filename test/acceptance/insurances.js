@@ -52,4 +52,24 @@ describe('Insurances', function(){
       });
     });
   });
+	describe('post /insurances', function(){
+		it('should create an insurance', function(done){
+			var options = {
+				method: 'post',
+				url: '/insurances',
+				payload: {
+					name: 'Big Money',
+					is_rug: true
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

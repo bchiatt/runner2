@@ -52,4 +52,23 @@ describe('Therapists', function(){
       });
     });
   });
+	describe('get /therapist/{id}', function(){
+		it('should get a therapist', function(done){
+			var options = {
+				method: 'get',
+				url: '/therapists/1',
+				payload: {
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.result.therapist.phone).to.equal('615-555-1234');
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

@@ -52,4 +52,46 @@ describe('Disciplines', function(){
       });
     });
   });
+	describe('post /disciplines', function(){
+		it('should create a discipline', function(done){
+			var options = {
+				method: 'post',
+				url: '/disciplines',
+				payload: {
+					name: 'Respiratory Therapy',
+					abbr: 'RT'
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('put /disciplines', function(){
+		it('should update a discipline', function(done){
+			var options = {
+				method: 'put',
+				url: '/disciplines',
+				payload: {
+					id: 1,
+					org_id: 1,
+					name: 'Respiratory Therapy',
+					abbr: 'RT'
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

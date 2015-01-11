@@ -52,4 +52,24 @@ describe('Precautions', function(){
       });
     });
   });
+	describe('post /precautions', function(){
+		it('should create a precaution', function(done){
+			var options = {
+				method: 'post',
+				url: '/precautions',
+				payload: {
+					name: 'water allergy',
+					description: 'cannot touch water'
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

@@ -52,4 +52,23 @@ describe('Work Schedules', function(){
       });
     });
   });
+	describe('delete /workscheds/{id}', function(){
+		it('should delete a work schedule', function(done){
+			var options = {
+				method: 'delete',
+				url: '/workscheds/1',
+				payload: {
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				console.log('results', response.result);
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

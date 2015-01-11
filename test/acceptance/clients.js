@@ -52,4 +52,23 @@ describe('Clients', function(){
       });
     });
   });
+	describe('get /clients/{id}', function(){
+		it('should get a client', function(done){
+			var options = {
+				method: 'get',
+				url: '/clients/1',
+				payload: {
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.result.client.room).to.equal('205A');
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

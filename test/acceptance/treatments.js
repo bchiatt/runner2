@@ -52,4 +52,50 @@ describe('Treatments', function(){
       });
     });
   });
+	describe('post /treatments', function(){
+		it('should add a treatment', function(done){
+			var options = {
+				method: 'post',
+				url: '/treatments',
+				payload: {
+					client_id: 1,
+					therapist_id: 1,
+					disc_id: 1,
+					ins_id: 1,
+					mins_expected: 60,
+					mins_actual: 45,
+					day_count: 23,
+					tx_date: 'Mar 13, 2015',
+					is_note_done: true,
+					is_archived: false
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('delete /treatments/{id}', function(){
+		it('should delete a treatment', function(done){
+			var options = {
+				method: 'delete',
+				url: '/treatments/1',
+				payload: {
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });
