@@ -23,12 +23,12 @@ describe('WorkSchedule', function(){
   describe('constructor', function(){
     it('should create an work schedule object', function(done){
       var obj = {
-        therapistId: 1,
-        dayId: 4,
-        isLateEval: false,
-        startTime: '10:00 am',
-        endTime: '6:00 pm'
-      },
+                  therapist_id: 1,
+                  day_id: 4,
+                  is_late_eval: false,
+                  start_time: '10:00 am',
+                  end_time: '6:00 pm'
+                },
           wSched = new WorkSchedule(obj);
 
       expect(wSched).to.be.instanceof(WorkSchedule);
@@ -40,12 +40,12 @@ describe('WorkSchedule', function(){
   describe('.add', function(){
     it('should add a new work schedule', function(done){
       var obj = {
-        therapistId: 1,
-        dayId: 4,
-        isLateEval: false,
-        startTime: '10:00 am',
-        endTime: '6:00 pm'
-      };
+                  therapist_id: 1,
+                  day_id: 4,
+                  is_late_eval: false,
+                  start_time: '10:00 am',
+                  end_time: '6:00 pm'
+                };
       WorkSchedule.add({org: {id: 1}}, obj, function(err, results){
         expect(results.work_schedule_add).to.be.ok;
         expect(err).to.be.null;
@@ -74,7 +74,7 @@ describe('WorkSchedule', function(){
 
   describe('.all', function(){
     it('should return all work schedules by organization', function(done){
-      WorkSchedule.all({org: {id: 1}}, function(err, results){
+      WorkSchedule.all({org: {id: 1}}, {therapistId: undefined}, function(err, results){
         expect(err).to.be.null;
         expect(results.length).to.equal(3);
         done();

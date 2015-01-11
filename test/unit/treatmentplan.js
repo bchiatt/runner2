@@ -23,13 +23,13 @@ describe('TreatmentPlan', function(){
   describe('constructor', function(){
     it('should create a treatment plan object', function(done){
       var obj = {
-                  clientId: 1,
-                  therId: 2,
-                  discId: 3,
-                  evalDate: '12/1/2014',
-                  dayId: 5,
-                  freqHigh: 7,
-                  freqLow: 5
+                  client_id: 1,
+                  eval_therapist_id: 2,
+                  disc_id: 3,
+                  eval_date: '12/1/2014',
+                  weekly_day_id: 5,
+                  frequency_high: 7,
+                  frequency_low: 5
                 },
           txPlan = new TreatmentPlan(obj);
 
@@ -42,13 +42,13 @@ describe('TreatmentPlan', function(){
   describe('.add', function(){
     it('should add a new treatment plan', function(done){
       var obj = {
-									clientId: 1,
-									therId: 2,
-									discId: 3,
-									evalDate: '12/1/2014',
-									dayId: 5,
-									freqHigh: 7,
-									freqLow: 5
+                  client_id: 1,
+                  eval_therapist_id: 2,
+                  disc_id: 3,
+                  eval_date: '12/1/2014',
+                  weekly_day_id: 5,
+                  frequency_high: 7,
+                  frequency_low: 5
                 };
       TreatmentPlan.add({org: {id: 1}}, obj, function(err, results){
         expect(results.treatment_plan_add).to.be.ok;
@@ -78,7 +78,7 @@ describe('TreatmentPlan', function(){
 
   describe('.all', function(){
     it('should return all treatment plans by organization', function(done){
-      TreatmentPlan.all({org: {id: 1}}, function(err, results){
+      TreatmentPlan.all({org: {id: 1}}, undefined, function(err, results){
         expect(err).to.be.null;
         expect(results.length).to.equal(3);
         done();

@@ -32,7 +32,14 @@ describe('Client', function(){
 
   describe('.add', function(){
     it('should add a new client', function(done){
-      Client.add({org: {id: 1}}, {first: 'Sally', last: 'Thomas'}, function(err, results){
+      var obj = {
+        first: 'Sally',
+        last: 'Thomas',
+        ins_id: 1,
+        admit_date: 'Nov 12, 2014',
+        room: '213A'
+      };
+      Client.add({org: {id: 1}}, obj, function(err, results){
         expect(results.client_add).to.be.ok;
         expect(err).to.be.null;
         done();

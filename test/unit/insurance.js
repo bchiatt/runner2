@@ -32,7 +32,7 @@ describe('Insurance', function(){
 
   describe('.add', function(){
     it('should add a new insurance', function(done){
-      Insurance.add({org: {id: 1}}, {name: 'Medicare B', isRug: false}, function(err, results){
+      Insurance.add({org: {id: 1}}, {name: 'Medicare B', is_rug: false}, function(err, results){
         expect(results.insurance_add).to.be.ok;
         expect(err).to.be.null;
         done();

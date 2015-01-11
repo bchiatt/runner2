@@ -23,14 +23,14 @@ describe('Treatment', function(){
   describe('constructor', function(){
     it('should create an treatment object', function(done){
       var obj = {
-                  clientId: 1,
-                  therId: 2,
-                  discId: 3,
-                  insId: 2,
-                  planId: 1,
-                  expMins: 45,
-                  txDate: '12/22/2014',
-                  dayCount: 27
+                  client_id: 1,
+                  therapist_id: 2,
+                  disc_id: 3,
+                  ins_id: 2,
+                  plan_id: 1,
+                  mins_expected: 45,
+                  tx_date: '12/22/2014',
+                  day_count: 27
                 },
           txPlan = new Treatment(obj);
 
@@ -43,14 +43,14 @@ describe('Treatment', function(){
   describe('.add', function(){
     it('should add a new treatment', function(done){
       var obj = {
-                  clientId: 1,
-                  therId: 2,
-                  discId: 3,
-                  insId: 2,
-                  planId: 1,
-                  expMins: 45,
-                  txDate: '12/22/2014',
-                  dayCount: 27
+                  client_id: 1,
+                  therapist_id: 2,
+                  disc_id: 3,
+                  ins_id: 2,
+                  plan_id: 1,
+                  mins_expected: 45,
+                  tx_date: '12/22/2014',
+                  day_count: 27
                 };
       Treatment.add({org: {id: 1}}, obj, function(err, results){
         expect(results.treatment_add).to.be.ok;
