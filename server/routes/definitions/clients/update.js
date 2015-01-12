@@ -12,11 +12,11 @@ module.exports = {
       first: Joi.string().required(),
       last: Joi.string().required(),
       ins_id: Joi.number().required(),
-      room: Joi.string(),
-      admit_date: Joi.string(),
-      discharge_date: Joi.string(),
-      phone: Joi.string(),
-      email: Joi.string()
+      room: Joi.string().allow(null),
+      admit_date: Joi.string().allow(null),
+      discharge_date: Joi.string().allow(null),
+      phone: Joi.string().allow(null),
+      email: Joi.string().allow(null)
     }
   },
   handler: function(request, reply){

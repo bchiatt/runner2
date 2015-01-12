@@ -24,11 +24,9 @@
     $scope.login = function(){
       User.login($scope.user).then(function(response){
         $rootScope.rootuser = response.data;
-        toastr.success('User successfully authenticated.');
         $rootScope.$broadcast('auth', response.data);
         $state.go('home');
       }, function(){
-        toastr.error('Error during authentication.');
         $scope.user = {};
       });
     };

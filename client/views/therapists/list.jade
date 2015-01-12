@@ -3,6 +3,7 @@ h4 THERAPISTS
 table
   thead
     tr
+      th Photo
       th Name
       th Discipline
       th Type
@@ -13,6 +14,7 @@ table
       th Edit
   tbody
     tr(ng-repeat='t in therapists | orderBy: \'last\'')
+      td: .photo-thumbnail(style='background-image: url({{t.photo}})')
       td {{t.last}}, {{t.first}}
       td {{t.disc_abbr}}
       td {{t.is_therapist ? 'Therapist' : 'Assistant'}}

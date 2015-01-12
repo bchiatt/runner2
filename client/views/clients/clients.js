@@ -26,7 +26,7 @@
       if(data.id){
         Client.update(data).then(function(response){
           getAll();
-        });
+        }, function(e){console.log('err', e);});
       }else{
         Client.create(data).then(function(response){
           getAll();
@@ -54,6 +54,8 @@
       delete data.photo;
       if(data.admit_date){data.admit_date = Time.postgresDate(data.admit_date);}
       if(data.discharge_date){data.discharge_date = Time.postgresDate(data.discharge_date);}
+      data.phone = data.phone;
+      data.email = data.email;
       return data;
     }
   }]);

@@ -10,14 +10,12 @@
     o.controller  = ['$rootScope', '$scope', '$state', function($rootScope, $scope, $state){
                     }];o.controller  = ['$rootScope', '$scope', '$state', 'User', function($rootScope, $scope, $state, User){
                       $scope.$on('auth', function(evt, data){
-                        console.log('auth');
                         $state.reload();
                       });
 
                       $scope.logout = function(){
                         User.logout().then(function(){
                           $rootScope.rootuser = null;
-                          toastr.success('User successfully logged out.');
                           $state.go('home');
                         });
                       };

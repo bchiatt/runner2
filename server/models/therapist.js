@@ -1,7 +1,9 @@
 'use strict';
 
 var pg        = require('../postgres/manager'),
-    multiline = require('multiline');
+    multiline = require('multiline'),
+    crypto    = require('crypto'),
+    AWS    = require('aws-sdk');
 
 function Therapist(obj){
   this.discId           = obj.disc_id;
@@ -65,6 +67,24 @@ Therapist.update = function(user, obj, cb){
       ],
       function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);
+  });
+};
+
+Therapist.uploadmobile = function(user, b64, therapistId, cb){
+  var s3   = new AWS.S3();
+
+  crypto.randomBytes(48, function(ex, buf){
+    var hex = buf.toString('hex'),
+    loc = user.org_id + '/' + therapistId + '/' + hex + '.jpg',
+    url = 'https://s3.amazonaws.com/' + process.env.AWS_BUCKET + '/' + loc;
+
+    pg.query('update therapists set photo = $1 where id = $2 and org_id = $3', [url, therapistId, user.org.id], function(err, results){
+      if(err){return cb(err);}
+
+      var bin    = new Buffer(b64, 'base64'),
+      params = {Bucket: process.env.AWS_BUCKET, Key: loc, Body: bin, ACL: 'public-read'};
+      s3.putObject(params, cb);
+    });
   });
 };
 

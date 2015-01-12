@@ -14,9 +14,9 @@ module.exports = {
       last: Joi.string().required(),
       disc_id: Joi.number().required(),
       is_therapist: Joi.boolean().required(),
-      phone: Joi.string(),
-      email: Joi.string(),
-      productivity_goal: Joi.number().required()
+      phone: Joi.string().allow(null),
+      email: Joi.string().allow(null),
+      productivity_goal: Joi.number().allow(null)
     }
   },
   handler: function(request, reply){

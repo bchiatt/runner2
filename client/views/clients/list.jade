@@ -3,6 +3,7 @@ h4 CLIENTS
 table
   thead
     tr
+      th Photo
       th Room
       th Name
       th Insurance
@@ -14,6 +15,7 @@ table
       th Edit
   tbody
     tr(ng-repeat='c in clients | orderBy: \'last\'')
+      td: .photo-thumbnail(style='background-image: url({{c.photo}})')
       td {{c.room ? c.room : 'inactive'}}
       td {{c.last}}, {{c.first}}
       td {{c.ins_name}}

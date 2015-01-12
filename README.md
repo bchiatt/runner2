@@ -9,10 +9,10 @@
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/bchiatt-runner2.svg)](https://saucelabs.com/u/bchiatt-runner2)
 
 ### Screenshots
-![Image2](/docs/screenshots/register.png)
+![Image1](/docs/screenshots/register.png)
 ![Image2](/docs/screenshots/sidebar.png)
-![Image2](/docs/screenshots/edit.png)
-![Image1](/docs/screenshots/schema.png)
+![Image3](/docs/screenshots/edit.png)
+![Image4](/docs/screenshots/schema.png)
 
 ### Description
 RUG Runner is an admission to discharge management web application for physical
