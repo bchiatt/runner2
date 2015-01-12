@@ -36,7 +36,7 @@
       data.therapist_id = $state.params.id;
       data.start_time = obj.start_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
       data.end_time = obj.end_time.toString().match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)[0];
-      data.is_late_eval = obj.is_late_eval;
+      data.is_late_eval = obj.is_late_eval || false;
 
       if(data.id){
         WorkSchedule.update(data).then(function(response){
@@ -45,8 +45,6 @@
       }else{
         WorkSchedule.create(data).then(function(response){
           getAll();
-        }, function(r){
-          console.log(r);
         });
       }
     };

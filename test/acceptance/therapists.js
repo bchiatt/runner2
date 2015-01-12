@@ -52,7 +52,7 @@ describe('Therapists', function(){
       });
     });
   });
-	describe('get /therapist/{id}', function(){
+	describe('get /therapists/{id}', function(){
 		it('should get a therapist', function(done){
 			var options = {
 				method: 'get',
@@ -66,6 +66,53 @@ describe('Therapists', function(){
 
 			server.inject(options, function(response){
 				expect(response.result.therapist.phone).to.equal('615-555-1234');
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('post /therapists', function(){
+		it('should create a therapist', function(done){
+			var options = {
+				method: 'post',
+				url: '/therapists',
+				payload: {
+					disc_id: 2,
+					first: 'Sally',
+					last: 'Thomas',
+					is_therapist: false
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.result.therapist_add).to.be.ok;
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('put /therapists', function(){
+		it('should update a therapist', function(done){
+			var options = {
+				method: 'put',
+				url: '/therapists',
+				payload: {
+					id: 1,
+					disc_id: 2,
+					first: 'Sally',
+					last: 'Thomas',
+					is_therapist: false,
+					productivity_goal: 83
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
 				expect(response.statusCode).to.equal(200);
 				done();
 			});

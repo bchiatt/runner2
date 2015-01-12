@@ -52,6 +52,29 @@ describe('Days', function(){
       });
     });
   });
+	describe('post /days', function(){
+		it('should create an org defined day', function(done){
+			var options = {
+				method: 'post',
+				url: '/days',
+				payload: {
+					num: 9,
+					full_name: 'example',
+					abbr: 'ex',
+					letter: 'e'
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.result.day_add).to.be.ok;
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 	describe('put /days', function(){
 		it('should update an org defined day', function(done){
 			var options = {

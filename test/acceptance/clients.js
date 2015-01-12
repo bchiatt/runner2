@@ -71,4 +71,52 @@ describe('Clients', function(){
 			});
 		});
 	});
+	describe('post /clients', function(){
+		it('should create a client', function(done){
+			var options = {
+				method: 'post',
+				url: '/clients',
+				payload: {
+					first: 'Sally',
+					last: 'Thomas',
+					ins_id: 1,
+					admit_date: 'Nov 12, 2014',
+					room: '213A'
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.result.client_add).to.be.ok;
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('put /clients', function(){
+		it('should update a client', function(done){
+			var options = {
+				method: 'put',
+				url: '/clients',
+				payload: {
+					id: 1,
+					first: 'Sally',
+					last: 'Thomas',
+					ins_id: 1,
+					admit_date: 'Nov 12, 2014',
+					room: '213A'
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

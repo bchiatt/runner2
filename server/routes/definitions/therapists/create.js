@@ -14,7 +14,7 @@ module.exports = {
       is_therapist: Joi.boolean().required(),
       phone: Joi.string(),
       email: Joi.string(),
-      productivity_goal: Joi.number().required()
+      productivity_goal: Joi.number()
     }
   },
   handler: function(request, reply){

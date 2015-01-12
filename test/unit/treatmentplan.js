@@ -78,9 +78,9 @@ describe('TreatmentPlan', function(){
 
   describe('.all', function(){
     it('should return all treatment plans by organization', function(done){
-      TreatmentPlan.all({org: {id: 1}}, undefined, function(err, results){
+      TreatmentPlan.all({org: {id: 1}}, 3, function(err, results){
         expect(err).to.be.null;
-        expect(results.length).to.equal(3);
+        expect(results.length).to.equal(1);
         done();
       });
     });

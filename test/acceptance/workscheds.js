@@ -65,7 +65,54 @@ describe('Work Schedules', function(){
 			};
 
 			server.inject(options, function(response){
-				console.log('results', response.result);
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('post /workscheds', function(){
+		it('should create a work schedule', function(done){
+			var options = {
+				method: 'post',
+				url: '/workscheds',
+				payload: {
+					day_id: 3,
+					therapist_id: 1,
+					start_time: '6:00:00',
+					end_time: '8:00:00',
+					is_late_eval: false
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect('work_schedule_add').to.be.ok;
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('put /workscheds', function(){
+		it('should update a work schedule', function(done){
+			var options = {
+				method: 'put',
+				url: '/workscheds',
+				payload: {
+					id: 2,
+					day_id: 3,
+					therapist_id: 1,
+					start_time: '6:00:00',
+					end_time: '8:00:00',
+					is_late_eval: false
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
 				expect(response.statusCode).to.equal(200);
 				done();
 			});

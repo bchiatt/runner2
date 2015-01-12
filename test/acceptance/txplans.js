@@ -52,4 +52,56 @@ describe('Treatment Plans', function(){
       });
     });
   });
+	describe('post /txplans', function(){
+		it('should create a treatment plan', function(done){
+			var options = {
+				method: 'post',
+				url: '/txplans',
+				payload: {
+					client_id: 1,
+					eval_therapist_id: 2,
+					disc_id: 3,
+					eval_date: '12/1/2014',
+					weekly_day_id: 5,
+					frequency_high: 7,
+					frequency_low: 5
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.result.treatment_plan_add).to.be.ok;
+        expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('pupt /txplans', function(){
+		it('should update a treatment plan', function(done){
+			var options = {
+				method: 'put',
+				url: '/txplans',
+				payload: {
+					id: 1,
+					client_id: 1,
+					eval_therapist_id: 2,
+					disc_id: 3,
+					eval_date: '12/1/2014',
+					weekly_day_id: 5,
+					frequency_high: 7,
+					frequency_low: 5
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
 });

@@ -52,12 +52,13 @@ describe('Insurances', function(){
       });
     });
   });
-	describe('post /insurances', function(){
-		it('should create an insurance', function(done){
+	describe('put /insurances', function(){
+		it('should update an insurance', function(done){
 			var options = {
-				method: 'post',
+				method: 'put',
 				url: '/insurances',
 				payload: {
+					id: 2,
 					name: 'Big Money',
 					is_rug: true
 				},

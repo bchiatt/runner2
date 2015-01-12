@@ -67,6 +67,28 @@ describe('Precautions', function(){
 			};
 
 			server.inject(options, function(response){
+				expect(response.result.precaution_add).to.be.ok;
+				expect(response.statusCode).to.equal(200);
+				done();
+			});
+		});
+	});
+	describe('put /precautions', function(){
+		it('should update a precaution', function(done){
+			var options = {
+				method: 'put',
+				url: '/precautions',
+				payload: {
+					id: 1,
+					name: 'water allergy',
+					description: 'cannot touch water'
+				},
+				headers: {
+					cookie: cookie
+				}
+			};
+
+			server.inject(options, function(response){
 				expect(response.statusCode).to.equal(200);
 				done();
 			});
