@@ -9,39 +9,96 @@
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/bchiatt-runner2.svg)](https://saucelabs.com/u/bchiatt-runner2)
 
 ### Screenshots
-![Image1](/docs/screenshots/schema.png)
 ![Image2](/docs/screenshots/register.png)
+![Image2](/docs/screenshots/sidebar.png)
+![Image2](/docs/screenshots/edit.png)
+![Image1](/docs/screenshots/schema.png)
 
 ### Description
-write a description about your project
+RUG Runner is an admission to discharge management web application for physical
+(as well as occupational, speech, respiratory, etc.) therapy departments.
+The purpose of RUG Runner is to make it easier for rehab managers/schedulers to do
+the hard work of projecting, tracking and evaluating treatment minutes or, as
+Medicare calls them, resource utilization groups (RUG).
 
-### Models
-```
-Model 1
-```
 
+### Database & Models
 ```
-Model 2
-```
-
-### Database
-```
-Collecion 1
+Organizations
 ```
 
 ```
-Collection 2
+Users
+```
+
+```
+Insurances
+```
+
+```
+Precautions
+```
+
+```
+Disciplines
+```
+
+```
+Days
+```
+
+```
+Therapists
+```
+
+```
+Work_Schedules
+```
+
+```
+Clients
+```
+
+```
+Treatments_Plans
+```
+
+```
+Treatments
 ```
 
 ### Features
-- [x] Feature 1
-- [ ] Feature 2
-- [x] Feature 3
+- [x] Register Organization and Administrator (user)
+- [x] Login Administrator
+- [x] Create Insurance
+- [x] Create Precautions
+- [x] Create Disciplines
+- [x] Create Days
+- [x] Create Therapists
+- [x] Create Work Schedules
+- [x] Create Clients
+- [x] Create Treatment Plans
+- [x] Create Treatments
+- [x] Update Insurance
+- [x] Update Precautions
+- [x] Update Disciplines
+- [x] Update Days
+- [x] Update Therapists
+- [x] Update Work Schedules
+- [x] Update Clients
+- [x] Update Treatment Plans
+- [x] Update Treatments
+- [ ] Register Non-Admin Users
+- [ ] Admit Client Flow
+- [ ] Display Client RUG Calculator
+- [ ] Schedule Treatements Flow
+- [ ] Confirm/Archive Treatments Flow
 
 ### Running Tests
 ```bash
 $ npm install
 $ npm test
+$ make test-e2e
 ```
 
 ### Setting Up Database for Testing
@@ -52,6 +109,8 @@ $ cd test/scripts
 $ ./drop-tables.sh runner_test # can skip if db is new; drops all tables
 $ ./create-db.sh runner_test # creates all tables in the db
 $ ./clean-db.sh runner_test # deletes * from each table and enters seed data
+```
+```bash
 $ ./reset-db.sh runner_test # executes the above 3 scripts
 ```
 

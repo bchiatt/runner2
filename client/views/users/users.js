@@ -18,7 +18,6 @@
           $state.go('login');
         }, function(err){
           console.log(err);
-          //$scope.user = {};
         });
     };
 
