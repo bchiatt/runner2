@@ -15,10 +15,9 @@
 
     $scope.register = function(){
         User.register($scope.user).then(function(response){
-          toastr.success('User successfully registered.');
           $state.go('login');
-        }, function(){
-          toastr.error('Error during registration.');
+        }, function(err){
+          console.log(err);
           //$scope.user = {};
         });
     };
