@@ -21,6 +21,10 @@ The purpose of RUG Runner is to make it easier for rehab managers/schedulers to 
 the hard work of projecting, tracking and evaluating treatment minutes or, as
 Medicare calls them, resource utilization groups (RUG).
 
+### Route Documentation
+```
+http://base-url/docs
+```
 
 ### Database & Models
 ```
