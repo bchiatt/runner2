@@ -2,12 +2,20 @@
   .reveal-modal(ng-show='show')
     a.close-reveal-modal(ng-click='hideModal()') &#215;
     
-    h1 Scheduled Work Day for {{obj.therapist_first}} {{obj.therapist_last}}
+    h1(ng-show='{{obj.therapist_id}}') Scheduled Work Day for {{obj.therapist_first}} {{obj.therapist_last}}
+    h1(ng-show='{{!obj.therapist_id}}') Create Scheduled Work Day
     form(novalidate, name='workScheduleForm')
+      .row(ng-show='{{!obj.therapist_id}}')
+        .small-4.columns
+          label(for='therapist') Therapist
+          select.form-control#therapist(ng-model='obj.therapist_id', ng-options='t.id as fullName(t.first, t.last) for t in obj.therapists | orderBy:\'last\'', required)
+            option(value='') Select Therapist
+        .small-4.columns
+        .small-4.columns
       .row
         .small-4.columns
           label(for='day') Day of the Week
-          select.form-control#dday(ng-model='obj.day_id', ng-options='d.id as d.full_name for d in obj.days | orderBy:\'num\'', required)
+          select.form-control#day(ng-model='obj.day_id', ng-options='d.id as d.full_name for d in obj.days | orderBy:\'num\'', required)
             option(value='') Select Day
         .small-4.columns
           label

@@ -17,6 +17,7 @@
 
     $scope.save = function(data){
       $scope.selected = {};
+      data.is_rug = data.is_rug || false;
 
       if(data.id){
         Insurance.update(data).then(function(response){

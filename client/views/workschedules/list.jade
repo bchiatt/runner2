@@ -18,4 +18,6 @@ table
           td {{::timeDiff(ws.start_time, ws.end_time)}}
           td {{::ws.is_late_eval ? 'YES' : '---'}}
 
+button.button(ng-click='toggleModal({})') Create
+
 div(bc-modal, ng-class='{"modal-display": modalShown}', show='modalShown', obj='{{selected}}', folder='workschedules', file='edit', save='save(data)')

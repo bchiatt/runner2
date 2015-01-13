@@ -8,18 +8,25 @@
     $scope.selected = {};
 
     getAll();
+    getTherapist();
 
     Day.all().then(function(response){
       $scope.days = response.data.days;
     });
 
-    Therapist.findById($state.params.id).then(function(response){
-      $scope.therapist = {
-        therapist_id: response.data.therapist.id,
-        therapist_first: response.data.therapist.first,
-        therapist_last: response.data.therapist.last
-      };
+    Therapist.all().then(function(response){
+      $scope.therapists = response.data.therapists;
     });
+
+    function getTherapist(){
+      Therapist.findById($state.params.id).then(function(response){
+        $scope.therapist = {
+          therapist_id: response.data.therapist.id,
+          therapist_first: response.data.therapist.first,
+          therapist_last: response.data.therapist.last
+        };
+      });
+    }
 
     function getAll(){
       WorkSchedule.findByTherapist($state.params.id).then(function(response){
@@ -41,10 +48,12 @@
       if(data.id){
         WorkSchedule.update(data).then(function(response){
           getAll();
+          getTherapist();
         });
       }else{
         WorkSchedule.create(data).then(function(response){
           getAll();
+          getTherapist();
         });
       }
     };
@@ -75,7 +84,8 @@
         $scope.selected.end_time = new Date(1970, 0, 1, end[0], end[1], 0);
       }
 
-      $scope.selected.days= $scope.days;
+      $scope.selected.days = $scope.days;
+      $scope.selected.therapists = $scope.therapists;
       $scope.modalShown = !$scope.modalShown;
     };
   }]);

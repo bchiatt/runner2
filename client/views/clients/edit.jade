@@ -15,7 +15,7 @@
       .row
         .small-4.columns
           label(for='insurance') Insurance
-          select.form-control#insurance(ng-model='::obj.ins_id', ng-options='i.id as i.name for i in obj.insurances| orderBy:\'name\'')
+          select.form-control#insurance(ng-model='::obj.ins_id', ng-options='i.id as i.name for i in obj.insurances| orderBy:\'name\'', required)
             option(value='') Select Insurance
         .small-4.columns
           label(for='room') Room

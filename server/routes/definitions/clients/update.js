@@ -11,7 +11,7 @@ module.exports = {
       id: Joi.number().required(),
       first: Joi.string().required(),
       last: Joi.string().required(),
-      ins_id: Joi.number().required(),
+      ins_id: Joi.number().required().allow(null),
       room: Joi.string().allow(null),
       admit_date: Joi.string().allow(null),
       discharge_date: Joi.string().allow(null),

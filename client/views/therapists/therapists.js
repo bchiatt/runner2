@@ -39,6 +39,7 @@
       delete data.disc_abbr;
       delete data.disc_name;
       delete data.photo;
+      data.is_therapist = data.is_therapist || false;
 
       return data;
     }
